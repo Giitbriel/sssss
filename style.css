@@ -693,7 +693,7 @@ body.modal-open .contact-form-container {
     /* Pozostawiamy podstawowe style main, usuwamy padding/width/max-width związane z marginesem 10vw */
     text-align: center;
     animation: logoshow-animation 2s;
-    width: 100vw;
+    width: 800px;
     max-width: none; /* Upewnij się, że może być szerszy niż domyślne 960px */
     box-sizing: border-box;
     margin: 0 auto;
@@ -702,7 +702,7 @@ body.modal-open .contact-form-container {
 
 #galeria .swiper-container {
     /* Zastosuj margines 10vw tutaj, ustawiając szerokość i centrując */
-    width: 100vw; /* Szerokość kontenera = 100% viewport - 10vw z lewej - 10vw z prawej */
+    width: 600px; /* Szerokość kontenera = 100% viewport - 10vw z lewej - 10vw z prawej */
     margin: 5px 0px 40px -10px; /* Wyśrodkuj kontener i dodaj marginesy pionowe */
     /* padding-bottom: 40px; -- Usunięte, margines dolny w margin */
     position: relative;
