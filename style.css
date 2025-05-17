@@ -348,7 +348,7 @@ button {
 
 /* Jawne ustawienie braku efektów na głównym kontenerze treści, gdy menu jest aktywne */
 .container.active .main-container {
-    filter: none !important; /* Dodano !important dla pewności */
+    filter: blur(15px) !important; /* Dodano !important dla pewności */
     opacity: 1 !important; /* Dodano !important dla pewności */
     transition: none !important; /* Usunięto wszelkie przejścia */
     /* Dodano właściwości, które mogą wpływają na renderowanie */
@@ -693,7 +693,7 @@ body.modal-open .contact-form-container {
     /* Pozostawiamy podstawowe style main, usuwamy padding/width/max-width związane z marginesem 10vw */
     text-align: center;
     animation: logoshow-animation 2s;
-    width: 100%;
+    width: 100vw;
     max-width: none; /* Upewnij się, że może być szerszy niż domyślne 960px */
     box-sizing: border-box;
     margin: 0 auto;
