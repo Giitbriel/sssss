@@ -133,7 +133,7 @@ button {
 /* Kontener główny dla sekcji */
 .main-container {
   padding-top: 20px; /* Dodaj odstep od góry, aby zawartość nie chowała się pod fixed navbar, dostosuj wartość */
-  width: 100%;
+  width: 100vw;
   /* Dodano właściwości mające na celu izolację renderowania */
   isolation: isolate;
   transform: translateZ(0); /* Popularny hack do tworzenia nowego kontekstu nakładania */
