@@ -1,218 +1,235 @@
 <!DOCTYPE html>
-<html lang="pl">
-
+<html lang="pl-PL">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Soul Studio</title>
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&display=swap"
-        rel="stylesheet">
-    <script src="https://kit.fontawesome.com/93d72d1579.js" crossorigin="anonymous"></script>
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Soul Studio - profesjonalne zabiegi kosmetyczne: brwi permanentne, rzęsy, pedicure, manicure. Zadbaj o swoje piękno w Lublinie." />
+    <meta name="keywords" content="brwi permanentne, rzęsy, pedicure, manicure, kosmetologia, salon kosmetyczny, Lublin, Soul Studio" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Soul Studio - Salon Kosmetyczny Lublin</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <style>
+
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
 </head>
-
 <body>
- <div class='light x1'></div>
-  <div class='light x2'></div>
-  <div class='light x3'></div>
-  <div class='light x4'></div>
-  <div class='light x5'></div>
-  <div class='light x6'></div>
-  <div class='light x7'></div>
-  <div class='light x8'></div>
-  <div class='light x9'></div>
-    <div class="background-overlay">
-    </div>
 
-    <header class="top-bar">
-        <div class="logo">
-            <a href="#onas"><img src="logo.png" alt="Soul Studio Logo"></a>
-        </div>
-
-        <div class="top-menu-right">
-            <a href="https://booksy.com/pl-pl/276218_soul-studio_brwi-i-rzesy_6832_lublin#ba_s=seo"
-                class="top-menu-right" target="_blank">Umów się!</a>
-            <div class="top-menu-right">
-                <a href="https://www.instagram.com/soullashes.brows/" target="_blank"><i
-                        class="fa-brands fa-instagram"></i></a>
-						</div>
-			<div class="top-menu-right">			
-                <a href="https://www.facebook.com/p/Soul-Studio-Wiktoria-Lubiato-100084858038418/" target="_blank"><i
-                        class="fa-brands fa-facebook"></i></a>
+    <div class="container">
+        <div class="navbar">
+            <div class="logoplace">
+                <a href="#home" style="width:inherit; height:inherit;"><img src="images/logo.png" alt="Logo Soul Studio" style="width:inherit; height:inherit;" class="logo"></a>
             </div>
-
-            <label for="menu-toggle" class="menu-icon">
-                <span></span><span></span><span></span>
-            </label>
-            <input type="checkbox" id="menu-toggle" class="menu-toggle" />
-
-            <nav class="top-menu">
-                <a href="#onas">O nas</a>
-                <a href="#uslugi">Usługi</a>
-                <a href="#szkolenia">Szkolenia</a>
-                <a href="#cennik">Cennik</a>
-            </nav>
-        </div>
-    </header>
-
-    <main>
-        <section id="onas" class="section">
-            <h2>O nas</h2>
-            <p>W Soul Studio wierzymy, że każdy ma w sobie niepowtarzalną duszę, którą warto pielęgnować. Nasza przestrzeń to
-                miejsce, gdzie kreatywność spotyka się z profesjonalizmem, a pasja z doświadczeniem. Dążymy do tego, aby nasze
-                usługi inspirowały i pomagały odkrywać piękno w każdym detalu. Nasz zespół to zbiór utalentowanych artystów,
-                którzy z zaangażowaniem podchodzą do każdego projektu. Jesteśmy tutaj, aby Twoje wizje stały się rzeczywistością.</p>
-        </section>
-
-        <section id="uslugi" class="section">
-            <h2>Usługi</h2>
-            <div class="services-grid">
-                <div class="service-item">
-                    <h3>Stylizacja brwi i rzęs</h3>
-                    <p>Oferujemy kompleksową stylizację brwi i rzęs, dopasowaną do indywidualnych potrzeb i preferencji. Nasze
-                        zabiegi podkreślają naturalne piękno i dodają pewności siebie.</p>
-                </div>
-                <div class="service-item">
-                    <h3>Makijaż</h3>
-                    <p>Wykonujemy makijaż na każdą okazję, od delikatnego dziennego po spektakularny wieczorowy. Używamy tylko
-                        profesjonalnych kosmetyków, aby zapewnić trwałość i perfekcyjny wygląd.</p>
-                </div>
-                <div class="service-item">
-                    <h3>Szkolenia</h3>
-                    <p>Prowadzimy szkolenia z zakresu stylizacji i makijażu, skierowane zarówno do początkujących, jak i
-                        zaawansowanych. Nasze kursy to praktyczna wiedza i cenne wskazówki od ekspertów.</p>
-                </div>
-                <div class="service-item">
-                    <h3>Konsultacje</h3>
-                    <p>Oferujemy indywidualne konsultacje, podczas których doradzamy w zakresie pielęgnacji i doboru
-                        odpowiednich zabiegów. Pomagamy odkryć Twój unikalny styl.</p>
+            <div class="menu">
+                <div class="hamburger-menu">
+                    <div class="bar"></div>
                 </div>
             </div>
-        </section>
-
-        <section id="szkolenia" class="section">
-            <h2>Szkolenia</h2>
-            <p>Nasze szkolenia to intensywne kursy, które pozwalają zdobyć praktyczne umiejętności i wiedzę teoretyczną. Każdy
-                kurs prowadzony jest przez doświadczonego instruktora, który dzieli się swoim bogatym doświadczeniem. Zapewniamy
-                kameralną atmosferę i indywidualne podejście do każdego uczestnika. Po ukończeniu szkolenia otrzymasz
-                certyfikat potwierdzający zdobyte kwalifikacje.</p>
-        </section>
-
-        <section id="cennik" class="section">
-            <h2>Cennik</h2>
-            <div class="price-list">
-                <div class="price-item">
-                    <h4>Stylizacja brwi</h4>
-                    <p>Od 50 zł</p>
-                </div>
-                <div class="price-item">
-                    <h4>Stylizacja rzęs</h4>
-                    <p>Od 80 zł</p>
-                </div>
-                <div class="price-item">
-                    <h4>Makijaż dzienny</h4>
-                    <p>120 zł</p>
-                </div>
-                <div class="price-item">
-                    <h4>Makijaż wieczorowy</h4>
-                    <p>180 zł</p>
-                </div>
-            </div>
-        </section>
-
-        <div class="social-links">
         </div>
-    </main>
 
-      <button class="contact-button" onclick="toggleForm()">✉</button>
+        <div class="main-container">
+            <section id="home" class="page-section">
+                <div class="main">
+                    <header>
+                        <h1 class="H1">Dlaczego Soul?</h1>
+                        <p class="tekst">Jako nieliczni oferujemy zabiegi, które wykonują osoby doskonale przeszkolone. Oznacza to, że nie musisz się obawiać czy zabieg, który wybierzesz zostanie dobrze wykonany. Soul Studio gwarantuje przeprowadzanie zabiegów jedynie przez osoby identyfikujące się certyfikatami z danych zabiegów oraz co ważniejsze dużym stażem zabiegowym.</p>
+                        <a href="https://booksy.com/pl-pl/276218_soul-studio_brwi-i-rzesy_6832_lublin" target="_blank" rel="noopener noreferrer" class="booking-button">Zarezerwuj wizytę</a>
+                    </header>
+                </div>
+            </section>
 
-    <div class="contact-popup" id="contactForm">
-        <form action="https://formspree.io/f/xbjnjldz" method="POST" onsubmit="return validateForm(event)">
-            <input type="text" name="name" placeholder="Imię i nazwisko" required />
-            <input type="email" name="email" placeholder="Adres e-mail" required />
-            <textarea name="message" rows="4" placeholder="Wiadomość" required></textarea>
-            <div class="g-recaptcha" data-sitekey="YOUR_RECAPTCHA_SITE_KEY"></div>
-            <button type="submit">Wyślij</button>
-        </form>
+             <section id="galeria" class="page-section">
+                <div class="main">
+                    <header>
+                        <h1 class="H1">Galeria Prac</h1>
+                        <p class="tekst">Zapraszamy do obejrzenia efektów naszych zabiegów.</p>
+                    </header>
+                    <div class="swiper-container gallery-swiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"><img src="images/i1.jpg" alt="Praca 1"></div>
+                            <div class="swiper-slide"><img src="images/i2.jpg" alt="Praca 2"></div>
+                            <div class="swiper-slide"><img src="images/i3.jpg" alt="Praca 3"></div>
+                            <div class="swiper-slide"><img src="images/i4.jpg" alt="Praca 4"></div>
+                            <div class="swiper-slide"><img src="images/i5.jpg" alt="Praca 5"></div>
+                            <div class="swiper-slide"><img src="images/i6.jpg" alt="Praca 6"></div>
+                            <div class="swiper-slide"><img src="images/i7.jpg" alt="Praca 7"></div>
+                            <div class="swiper-slide"><img src="images/i8.jpg" alt="Praca 8"></div>
+                            <div class="swiper-slide"><img src="images/i9.jpg" alt="Praca 9"></div>
+                            <div class="swiper-slide"><img src="images/i10.jpg" alt="Praca 10"></div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="cennik" class="page-section">
+                <div class="main">
+                    <header>
+                        <h1 class="H1">Cennik</h1>
+                        <div id="table-wrapper">
+                            <div id="table-scroll"> <table>
+                                    <tr>
+                                        <td class="nazwa-zabiegu">Zabieg modelowania ust</td>
+                                        <td class="cena-zabiegu">|| 550 PLN ||</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="nazwa-zabiegu">Mezoterapia mikroigłowa || jedna okolica || dwie okolice || trzy okolice</td>
+                                        <td class="cena-zabiegu">|| 220 PLN || 280 PLN || 350 PLN ||</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="nazwa-zabiegu">Stymulator Profhilo</td>
+                                        <td class="cena-zabiegu">|| 700 PLN ||</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="nazwa-zabiegu">Stymulator Ejal40</td>
+                                        <td class="cena-zabiegu">|| 350 PLN ||</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="nazwa-zabiegu">Stymulator Karisma</td>
+                                        <td class="cena-zabiegu">|| 650 PLN ||</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="nazwa-zabiegu">Stymulator Nucleofil strong</td>
+                                        <td class="cena-zabiegu">|| 455 PLN ||</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="nazwa-zabiegu">Stymulator pod oczy Nucleofil soft</td>
+                                        <td class="cena-zabiegu">|| 550 PLN ||</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="nazwa-zabiegu">Stymulator pod oczy Sunekos 200</td>
+                                        <td class="cena-zabiegu">|| 350 PLN ||</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="nazwa-zabiegu">Mezoterapia igłowa || w zależności od preparatu ||</td>
+                                        <td class="cena-zabiegu">|| 240 PLN - 350 PLN ||</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="nazwa-zabiegu">Mezoterapia skóry głowy Dr. Cyj</td>
+                                        <td class="cena-zabiegu">|| 350 PLN ||</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="nazwa-zabiegu">Rzęsy 1:1 założenie || uzupełnienie</td>
+                                        <td class="cena-zabiegu">|| 140 PLN || 120 PLN ||</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="nazwa-zabiegu">Rzęsy light volume założenie || uzupełnienie</td>
+                                        <td class="cena-zabiegu">|| 160 PLN || 140 PLN ||</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="nazwa-zabiegu">Rzęsy większe objętości założenie || uzupełnienie</td>
+                                        <td class="cena-zabiegu">|| 140 PLN || 140 PLN ||</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="nazwa-zabiegu">Efekt Kim</td>
+                                        <td class="cena-zabiegu">|| 20 PLN ||</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="nazwa-zabiegu">Mokry efekt</td>
+                                        <td class="cena-zabiegu">|| 20 PLN ||</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </header>
+                </div>
+            </section>
+
+
+            <section id="kontakt" class="page-section">
+                <div class="main">
+                    <header>
+                        <h1 class="H1">Znajdź nas!</h1>
+                        <p class="tekst">Zobacz jak łatwo do nas trafić!</p>
+
+
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2497.215201913422!2d22.550655776957875!3d51.25194692933244!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47225903dbce437f%3A0xc237200f3a24d6d8!2sSoul%20Studio!5e0!3m2!1spl!2spl!4v1747416652072!5m2!1spl!2spl" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </header>
+                </div>
+            </section>
+
+            <section id="onas" class="page-section">
+                <div class="main">
+                    <header><h1 class="H1">Oferta szkoleniowa</h1>
+                        <p class="tekst">Jako nieliczni oferujemy zabiegi, które wykonują osoby doskonale przeszkolone. Oznacza to, że nie musisz się obawiać czy zabieg, który wybierzesz zostanie dobrze wykonany. Soul Studio gwarantuje przeprowadzanie zabiegów jedynie przez osoby identyfikujące się certyfikatami z danych zabiegów oraz co ważniejsze dużym stażem zabiegowym.</p>
+                    </header>
+                </div>
+            </section>
+        </div>
+
+        <div class="links">
+            <ul>
+                <li>
+                    <a href="#home" class="menulink" style="--i: 0.05s;"><p class="menutext">Strona główna</p></a>
+                </li>
+                <li>
+                    <a href="#galeria" class="menulink" style="--i: 0.1s;"><p class="menutext">Galeria</p></a>
+                </li>
+                 <li>
+                    <a href="#cennik" class="menulink" style="--i: 0.15s;"><p class="menutext">Cennik</p></a>
+                </li>
+                <li>
+                    <a href="#kontakt" class="menulink" style="--i: 0.2s;"><p class="menutext">Znajdź nas</p></a>
+                </li>
+                <li>
+                    <a href="#onas" class="menulink" style="--i: 0.25s;"><div class="menutext">Szkolenia</div></a>
+                </li>
+               <div class="sociallinks">
+    <a class="sociallink" href="https://www.instagram.com/soullashes.brows/" target="_blank">
+        <i class="fa-brands fa-instagram"></i>
+    </a>
+    <a class="sociallink" href="https://www.facebook.com/profile.php?id=100084858038418" target="_blank">
+        <i class="fa-brands fa-square-facebook"></i>
+        </a>
+</div>
+            </ul>
+        </div>
     </div>
 
-    <div id="confirmation">
-        <p>Dziękujemy za kontakt, wiadomość została wysłana.</p>
-        <div class="progress"></div>
+    <div class="contact-button-fixed">
+        <i class="fa-solid fa-envelope"></i> </div>
+
+    <div class="contact-modal-overlay">
+        <div class="contact-form-container">
+            <span class="close-modal">×</span> <h2>Wyślij do nas wiadomość</h2>
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name">Imię:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Wiadomość:</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <div class="form-group captcha-group">
+                    <label for="captcha-input"><span id="captcha-problem"></span> = ?</label>
+                    <input type="text" id="captcha-input" required>
+                    <span class="captcha-error"></span> </div>
+                <button type="submit" class="submit-button">Wyślij</button>
+            </form>
+        </div>
     </div>
 
-    <script>
-        // Pobieramy referencję do popupu poza funkcją
-        const confirmation = document.getElementById('confirmation');
-        confirmation.style.display = 'none'; // Upewniamy się, że jest ukryty na początku
+    <div class="notification-popup">
+        <p>Dziękujemy, wiadomość do nas leci.</p>
+    </div>
 
-        function toggleForm() {
-            document.getElementById('contactForm').classList.toggle('active');
-        }
+    <div class="image-modal-overlay">
+        <img src="" alt="Powiększony obraz">
+    </div>
 
-        function validateForm(event) {
-            event.preventDefault();
-            const form = event.target;
-            const formData = new FormData(form);
-
-            fetch(form.action, {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            })
-                .then(response => {
-                    if (response.ok) {
-                        form.style.display = 'none';
-                        confirmation.style.display = 'flex'; // Zmieniamy display na flex, aby był widoczny
-                        setTimeout(() => {
-                            confirmation.style.display = 'none';
-                            form.reset();
-                            toggleForm(); // Otwieramy formularz ponownie
-                        }, 5000);
-                    } else {
-                        alert('Wystąpił błąd podczas wysyłania wiadomości.');
-                    }
-                })
-                .catch(error => {
-                    console.error('Błąd:', error);
-                    alert('Wystąpił błąd podczas wysyłania wiadomości.');
-                });
-        }
-    </script>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const menuToggle = document.getElementById('menu-toggle');
-        const topMenu = document.querySelector('.top-menu');
-        const menuLinks = topMenu.querySelectorAll('a');
-        const mainContent = document.querySelector('main'); // Pobieramy element <main>
-
-        function closeMenu() {
-            menuToggle.checked = false;
-            topMenu.style.right = '-200px';
-            mainContent.classList.remove('blur-effect'); // Usuwamy blur
-        }
-
-        menuToggle.addEventListener('change', function() {
-            if (this.checked) {
-                topMenu.style.right = '0';
-                mainContent.classList.add('blur-effect'); // Dodajemy blur
-            } else {
-                topMenu.style.right = '-200px';
-                mainContent.classList.remove('blur-effect'); // Usuwamy blur
-            }
-        });
-
-        menuLinks.forEach(link => {
-            link.addEventListener('click', closeMenu);
-        });
-    });
-</script>
+    <script src="app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 </body>
-
 </html>
