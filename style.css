@@ -867,7 +867,7 @@ body.image-modal-open {
 
     /* Dostosowanie karuzeli na mniejszych ekranach */
     #galeria .swiper-container {
-         width: 90vw; /* Mniejsza szerokość kontenera, np. 90vw dla 5vw marginesu z każdej strony */
+         width: 768px; /* Mniejsza szerokość kontenera, np. 90vw dla 5vw marginesu z każdej strony */
          margin: 20px auto 40px auto; /* Wyśrodkowanie */
      }
     /* Dostosowanie wysokości slajdów galerii na mniejszych ekranach */
