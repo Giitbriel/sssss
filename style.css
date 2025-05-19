@@ -4,7 +4,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-weight: 600; /* Rozważ czy to nie jest zbyt ogólne, może lepiej per element */
+  /* font-weight: 600;  Usunięte, aby nie nadpisywać wagi czcionki globalnie */
 }
 
 html {
@@ -26,6 +26,7 @@ button {
   -moz-animation: fadeIn 1 1s ease-out;
   -o-animation: fadeIn 1 1s ease-out;
   animation: fadeIn 1 1s ease-out;
+  font-weight: 400; /* Ustawienie domyślnej wagi czcionki dla body */
 }
 
 .container {
@@ -41,7 +42,7 @@ button {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 0; /* Podniesiony z-index dla pewności */
+  z-index: 1000; /* Podniesiony z-index dla pewności, poniżej menu bocznego i modali */
   height: auto; /* Dostosuj wysokość do zawartości logo, np. padding */
   padding: 15px 0px 0px 15px; /* Przeniesione z .logoplace dla uproszczenia */
   display: flex; /* Aby hamburger menu był obok logo jeśli trzeba */
@@ -78,30 +79,32 @@ button {
   /* justify-content: space-between; */
   /* align-items: center; */
   /* color: #fff; */
-
 }
 
+/* Zwiększony obszar klikalny dla hamburger menu */
 .hamburger-menu {
   position: fixed; /* Już jest fixed, ale potwierdzamy */
-  top: 15px; /* Dopasuj pozycję */
-  right: 15px;
-  height: 15px;
-  width: 15px;
+  top: 10px; /* Dopasuj pozycję */
+  right: 10px;
+  height: 40px; /* Zwiększona wysokość */
+  width: 40px; /* Zwiększona szerokość */
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
+  display: flex; /* Używamy flexbox do centrowania pasków */
+  align-items: center; /* Centrowanie w pionie */
+  justify-content: center; /* Centrowanie w poziomie */
   animation: logoshow-animation 2s;
-  z-index: 1320; /* Wyżej niż navbar jeśli jest częścią .menu */
+  z-index: 1320; /* Wyżej niż navbar i menu boczne */
+  padding: 10px; /* Dodatkowy padding, aby zwiększyć obszar kliknięcia */
+  box-sizing: border-box; /* Upewnij się, że padding nie zwiększa wymiarów */
 }
 
 .bar {
-  width: 1.9rem;
+  width: 1.9rem; /* Zachowujemy rozmiar pasków */
   height: 1.5px;
   border-radius: 2px;
   background-color: #eee;
   transition: 0.5s;
-  position: absolute;
+  position: absolute; /* Paski są pozycjonowane absolutnie wewnątrz .hamburger-menu */
   z-index: 20;
 }
 
@@ -113,7 +116,7 @@ button {
   height: inherit;
   background-color: #eee;
   transition: 0.5s;
-    z-index: 20;
+  z-index: 20;
 }
 
 .bar:before {
@@ -127,7 +130,7 @@ button {
 /* Style dla aktywnego hamburger menu */
 .container.active .bar {
   transform: rotate(360deg);
-  background-color: rgba(255, 255, 255, 0);
+  background-color: rgba(255, 255, 255, 0); /* Ukrywamy środkowy pasek */
 }
 
 .container.active .bar:before {
@@ -140,7 +143,7 @@ button {
 
 /* Kontener główny dla sekcji */
 .main-container {
-  padding-top: 20px; /* Dodaj odstep od góry, aby zawartość nie chowała się pod fixed navbar, dostosuj wartość */
+  padding-top: 100px; /* Dodaj odstep od góry, aby zawartość nie chowała się pod fixed navbar, dostosuj wartość */
   width: 100%;
   /* Dodano właściwości mające na celu izolację renderowania */
   isolation: isolate;
@@ -148,30 +151,37 @@ button {
 }
 
 .page-section {
-  min-height: 100vh; /* Każda sekcja zajmuje co najmniej wysokość ekranu */
-  width: 95vw;
+  min-height: 98vh; /* Każda sekcja zajmuje co najmniej wysokość ekranu */
+  width: 100%; /* Sekcja zajmuje całą szerokość */
   display: flex;
   flex-direction: column;
-  justify-content: top; /* Wyśrodkowanie zawartości w pionie */
+  justify-content: flex-start; /* Treść zaczyna się od góry */
   align-items: center; /* Wyśrodkowanie zawartości w poziomie */
-  padding: 150px 20px; /* Wewnętrzny padding dla sekcji */
+  padding: 80px 20px; /* Wewnętrzny padding dla sekcji */
   box-sizing: border-box;
-  
+  position: relative; /* Potrzebne dla ewentualnych elementów pozycjonowanych absolutnie w sekcji */
+  z-index: 1; /* Zapewnienie odpowiedniego z-index */
 }
+/* Dostosowanie paddingu dla pierwszej sekcji, aby uwzględnić navbar */
+#home {
+    padding-top: 150px; /* Zwiększony padding, aby uniknąć chowania się pod navbarem */
+}
+
 
 .page-section .main { /* Usuwamy pozycjonowanie z oryginalnego .main */
   width: 100%;
   max-width: 960px; /* Maksymalna szerokość treści w sekcji (domyślna) */
+  margin: 0 auto; /* Wyśrodkowanie */
   text-align: center; /* Domyślne wyśrodkowanie tekstu w sekcji */
   animation: logoshow-animation 2s; /* Zachowujemy animację wejścia */
-  margin: 0 auto; /* Wyśrodkowanie */
   position: relative; /* DODANE: Ustawienie pozycji */
   z-index: 10;
+  /* Usunięto padding, aby zapewnić, że max-width działa poprawnie */
 }
 
 .page-section header { /* Upewniamy się, że header w sekcji jest odpowiednio szeroki */
   width: 100%;
- z-index: 10;
+  z-index: 10;
   /* min-height: 100vh; Usunięte, wysokość definiuje .page-section */
 }
 
@@ -180,37 +190,46 @@ button {
   /* margin-top: 20vh; Usunięte, pozycjonowanie przez flex w .page-section */
   text-align: center;
   color: #fff;
-  animation: logoshow-animation 2s; /* Powtarza się, można by to dać na .main */
+  /* animation: logoshow-animation 2s;  Powtarza się, można by to dać na .main */
   font-size: 2.7rem;
-  margin-top: 20px; /* Odstęp pod nagłówkiem */
-  margin-bottom: 5vh;
+  margin-top: 0; /* Usunięto górny margines H1, odstęp zapewnia padding sekcji */
+  margin-bottom: 40px; /* Odstęp pod nagłówkiem */
+  font-weight: 700; /* Pogrubienie nagłówków */
   /* Usunięto `text` na końcu linii, literówka */
- 
+
 }
 
 .tekst {
   color: #fff;
   margin: 0 auto; /* Wyśrodkowanie */
   /* margin-top: 20px; */
-  width: 80%; /* Dostosuj szerokość bloku tekstu */
+  width: 100%; /* Dostosuj szerokość bloku tekstu */
   max-width: 700px; /* Maksymalna szerokość dla czytelności */
   text-align: center; /* Upewnij się, że tekst jest wyśrodkowany */
   line-height: 1.6; /* Poprawa czytelności */
+  font-weight: 400; /* Normalna waga dla tekstu akapitowego */
 }
 
 
 /* Style dla menu bocznego (links) */
 .links {
   position: fixed; /* Zmienione z absolute na fixed */
-  right: 1vw;
-  top: 15vh; /* Dostosuj wg potrzeb */
+  right: 0; /* Pozycjonowanie od prawej krawędzi okna */
+  top: 0; /* Pozycjonowanie od górnej krawędzi okna */
   width: auto; /* Szerokość dopasuje się do zawartości */
-  /* height: 100vh; Usunięte */
+  height: 100vh; /* Pełna wysokość okna */
   z-index: 999; /* Poniżej navbar i hamburgera, ale nad treścią */
   display: flex; /* Zmienione na flex dla lepszego ułożenia */
   flex-direction: column; /* Linki jeden pod drugim */
+  justify-content: center; /* Wyśrodkowanie linków w pionie */
   align-items: flex-end; /* Wyrównanie do prawej */
+  padding: 0 20px; /* Dodaj padding po bokach */
+  pointer-events: none; /* Domyślnie nie reaguje na kliknięcia */
 }
+.container.active .links {
+    pointer-events: auto; /* Reaguje na kliknięcia, gdy menu jest aktywne */
+}
+
 
 .links ul {
   list-style: none;
@@ -229,35 +248,34 @@ button {
   transition: 0.3s;
   visibility: hidden; /* Ukryte domyślnie */
   opacity: 0; /* Ukryte domyślnie */
-  transform: translateX(20px); /* Efekt wysunięcia */
+  transform: translateX(50px); /* Większe początkowe przesunięcie */
   display: block; /* Aby linki były jeden pod drugim */
   text-align: right;
+  margin: 5px 0; /* Odstęp między linkami */
+  font-weight: 600;
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out, color 0.3s, background-image 0.3s, border-radius 0.3s; /* Ujednolicone przejścia */
 }
 
-.container.active .menulink,
-.container.active .sociallinks,
-.container.active .sociallink,
-.container.active .fa-brands  { /* Poprawiony selektor dla social links */
+.container.active .menulink { /* Poprawiony selektor dla social links */
   visibility: visible;
   opacity: 1;
-  transform: translateX(-15px);
-   /* Prostsza animacja */
+  transform: translateX(0); /* Wraca do pozycji */
 }
 
 /* Opóźnienia dla linków w menu */
 /* Zaktualizowane opóźnienia po dodaniu linku do galerii w odpowiedniej kolejności */
-.container.active .menulink:nth-child(1) { animation-delay: 0.1s; } /* Strona główna */
-.container.active .menulink:nth-child(2) { animation-delay: 0.15s; } /* Galeria */
-.container.active .menulink:nth-child(3) { animation-delay: 0.2s; } /* Cennik */
-.container.active .menulink:nth-child(4) { animation-delay: 0.25s; } /* Znajdź nas */
-.container.active .menulink:nth-child(5) { animation-delay: 0.3s; } /* Szkolenia */
+.container.active .menulink:nth-child(1) { transition-delay: 0.1s; } /* Strona główna */
+.container.active .menulink:nth-child(2) { transition-delay: 0.15s; } /* Galeria */
+.container.active .menulink:nth-child(3) { transition-delay: 0.2s; } /* Cennik */
+.container.active .menulink:nth-child(4) { transition-delay: 0.25s; } /* Znajdź nas */
+.container.active .menulink:nth-child(5) { transition-delay: 0.3s; } /* Szkolenia */
 
 
 /* Dodaj opóźnienia dla poszczególnych linków społecznościowych */
 /* Stosujemy selektor .sociallinks .sociallink:nth-child(n) */
 /* Opóźnienia social links po linkach menu */
-.container.active .sociallinks .sociallink:nth-child(1) { animation-delay: 0.35s; } /* Opóźnienie dla pierwszej ikonki (Instagram) */
-.container.active .sociallinks .sociallink:nth-child(2) { animation-delay: 0.4s; } /* Opóźnienie dla drugiej ikonki (Facebook) */
+.container.active .sociallinks .sociallink:nth-child(1) { transition-delay: 0.35s; } /* Opóźnienie dla pierwszej ikonki (Instagram) */
+.container.active .sociallinks .sociallink:nth-child(2) { transition-delay: 0.4s; } /* Opóźnienie dla drugiej ikonki (Facebook) */
 
 
 .menulink:hover {
@@ -283,15 +301,16 @@ button {
   justify-content: flex-end; /* Wyrównanie do prawej */
   visibility: hidden; /* Domyślnie ukryte */
   opacity: 0;
-  transform: translateX(20px); /* Powinien być ustawiony na 20px */
+  transform: translateX(50px);  /* Powinien być ustawiony na 20px */
   /* Usuń ewentualne linie width: 100%; padding-right: 1rem; i align-self: flex-end; */
-  margin-right: -1rem; /* Dodaj tę linię */
+  margin-right: 0; /* Usunięto ujemny margines */
   align-items: center; /* Dodaj lub zmień na center */
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Ujednolicone przejścia */
 }
 .sociallink {
   text-decoration: none;
-  margin-left: 10px;
-  transform: translateX(20px);  /* Odstęp między ikonami */
+  margin-left: 15px; /* Większy odstęp między ikonami */
+  transform: translateX(0);  /* Usunięto transform z tego elementu */
 }
 
 /* Dostosowane style dla ikonek markowych Font Awesome */
@@ -306,7 +325,7 @@ button {
 }
 
 #cennik {
-  scroll-margin-top: -170px; /* Dodana linia */
+  scroll-margin-top: 100px; /* Zmieniono na 100px, aby zgadzało się z padding-top main-container */
   /* pozostałe style dla #cennik */
 }
 /* Style specyficzne dla sekcji Cennik */
@@ -318,9 +337,10 @@ button {
 }
 
 #cennik .price-list table {
-    width: 100%; /* Tabela zajmuje całą dostępną szerokość */
+    width: 100%; /* Tabela zajmuje całą dostępną szerokość kontenera */
     border-collapse: collapse; /* Usuń odstępy między komórkami */
-    margin-top: 30px; /* Odstęp od nagłówka */
+    margin-top: 30px; /* Odstęp od nagłówka/tekstu */
+    table-layout: fixed; /* Zapobiega "rozlewaniu" się tabeli */
 }
 
 #cennik .price-list th,
@@ -328,6 +348,7 @@ button {
     border: 1px solid #333; /* Ciemna ramka */
     padding: 12px 15px; /* Padding wewnątrz komórek */
     text-align: left; /* Wyrównanie tekstu do lewej */
+    word-wrap: break-word; /* Zapobiega przepełnieniu komórki długim tekstem */
 }
 
 #cennik .price-list th {
@@ -341,16 +362,22 @@ button {
 #cennik .price-list td {
     background-color: #1a1a1a; /* Nieco jaśniejsze tło dla danych */
     color: #cccccc;
+    font-weight: 400; /* Normalna waga dla danych */
 }
 
 #cennik .price-list tr:nth-child(even) td {
     background-color: #111; /* Alternatywne tło dla wierszy parzystych */
 }
 
+#cennik .price-list .nazwa-zabiegu {
+    /* Możesz dostosować szerokość kolumny nazwy */
+    width: 70%; /* Przykład: 70% szerokości */
+}
 #cennik .price-list .cena-zabiegu {
     text-align: right; /* Cena wyrównana do prawej */
     color: #c5a34f; /* Kolor wyróżniający cenę */
-    font-weight: 600;
+    font-weight: 600; /* Lekko pogrubienie ceny */
+    width: 30%; /* Przykład: 30% szerokości */
 }
 
 
@@ -359,9 +386,9 @@ button {
   display: block;
   border-style: none;
   width: 100%; /* Zmienione na 100% szerokości kontenera .main */
-  max-width: 80vw; /* Maksymalna szerokość mapy */
+  max-width: 960px; /* Maksymalna szerokość mapy, zgadza się z .main */
   height: 450px; /* Zwiększona wysokość dla lepszej widoczności */
-  margin: 10px auto 0 auto; /* Wyśrodkowanie i odstęp */
+  margin: 30px auto 0 auto; /* Odstęp od tekstu i wyśrodkowanie */
   animation: logoshow-animation 2s;
 }
 
@@ -369,11 +396,12 @@ button {
 /* Rozmycie tła i zmiana logo po otwarciu menu */
 /* Usunięto regułę powodującą rozmycie i zanikanie głównej treści */
 
-.container.active .page-section .main {
+/* Usunięto style blur/opacity na .page-section .main gdy menu aktywne */
+/* .container.active .page-section .main {
   filter: blur(5px);
   opacity: 0.7;
   transition: filter 0.5s ease-out, opacity 0.5s ease-out;
-}
+} */
 
 
 /* Jawne ustawienie braku efektów na głównym kontenerze treści, gdy menu jest aktywne */
@@ -394,6 +422,7 @@ button {
 }
 
 /* Ukrywanie treści sekcji gdy menu jest aktywne */
+/* Usunięto reguły ukrywające treść, gdy menu jest otwarte - można przewijać stronę pod menu */
 /*
 .container.active .H1,
 .container.active .tekst,
@@ -406,6 +435,8 @@ button {
 */
 
 /* Animacje tła - Podstawowe style dla elementu .light */
+/* Jeśli te elementy są dynamicznie dodawane przez JS, upewnij się, że są potrzebne */
+/*
 .light {
   position: absolute;
   width: 0px;
@@ -416,9 +447,11 @@ button {
   opacity: 0;
   top: 100vh;
 }
-
+*/
 
 /* Przykład reguły dla .xN (pozostawiamy left i transform, usuwamy animation) */
+/* Jeśli animacja tła została usunięta z JS, te reguły również mogą być zbędne */
+/*
 .x1{ -webkit-transform: scale(1.0); transform: scale(1.0); left: 3%; }
 .x2{ -webkit-transform: scale(1.6); transform: scale(1.6); left: 10%; }
 .x3{ -webkit-transform: scale(.5); transform: scale(.5); left: 17%; }
@@ -431,13 +464,13 @@ button {
 .x10 { -webkit-transform: scale(0.7); transform: scale(0.7); left: 66%; }
 .x11 { -webkit-transform: scale(1.1); transform: scale(1.1); left: 73%; }
 .x12 { -webkit-transform: scale(0.6); transform: scale(0.6); left: 80%; }
-.x13 { -webkit-transform: scale(1.3); transform: scale(1.3); left: 87%; } /* Środek */
+.x13 { -webkit-transform: scale(1.3); transform: scale(1.3); left: 87%; }
 .x14 { -webkit-transform: scale(0.8); transform: scale(0.8); left: 94%; }
 .x15 { -webkit-transform: scale(1.0); transform: scale(1.0); left: 48%; }
-/* Możesz dostosować wartości 'left' i 'scale' według własnego uznania */
-
+*/
 
 /* Definicja keyframes - można ją zostawić lub usunąć, jeśli nie będzie używana */
+/* Usunięto nieużywane animacje floatUpNew */
 /*
 @keyframes floatUpNew {
   0% { top: 300vh; opacity: 0; }
@@ -643,6 +676,7 @@ body.modal-open .contact-form-container {
     font-size: 1rem;
     box-sizing: border-box; /* Włącza padding do szerokości */
     font-family: "Poppins", sans-serif; /* Użyj tej samej czcionki */
+    font-weight: 400; /* Normalna waga czcionki w polach */
 }
 
 .form-group textarea {
@@ -719,24 +753,25 @@ body.modal-open .contact-form-container {
 }
 
 /* Style specyficzne dla sekcji Galeria */
+/* Zapewniamy, że .main w galerii zachowuje się jak standardowy .main dla nagłówka i tekstu */
 #galeria .main {
-    /* Pozostawiamy podstawowe style main, usuwamy padding/width/max-width związane z marginesem 10vw */
     text-align: center;
     animation: logoshow-animation 2s;
     width: 100%;
-    max-width: none; /* Upewnij się, że może być szerszy niż domyślne 960px */
+    max-width: 960px; /* Upewnij się, że nagłówek i tekst są w tej szerokości */
+    margin: 0 auto; /* Wyśrodkowanie */
     box-sizing: border-box;
-    margin: 0 auto;
-    padding: 0; /* Usuń padding z main w galerii */
+    padding: 0 20px; /* Dodaj padding, aby treść nie dotykała krawędzi na węższych ekranach */
 }
 
 #galeria .swiper-container {
-     width: calc(100vw - 20vw); /* Czyli 80vw szerokości */
-    margin: 5px auto 50px auto; /* Wyśrodkowanie poziome + marginesy góra/dół */
+    width: 100%; /* Kontener Swipera zajmuje całą dostępną szerokość w .main */
+    max-width: 960px; /* Ogranicz szerokość Swipera do szerokości kontenera głównego */
+    margin: 40px auto 50px auto; /* Odstęp od tekstu i wyśrodkowanie poziome */
     position: relative;
     z-index: 1;
     box-sizing: border-box;
-    padding: 0 30px; /* jeśli potrzebujesz wewnętrznego odsunięcia od krawędzi */
+    padding: 0; /* Usuń padding, Swiper ma własne mechanizmy */
 }
 
 #galeria .swiper-slide {
@@ -749,15 +784,16 @@ body.modal-open .contact-form-container {
     border-radius: 8px;
     overflow: hidden;
     /* Ustawienie jednolitej wysokości dla slajdu */
-    height: 300px; /* Możesz dostosować tę wartość */
+    height: 400px; /* Możesz dostosować tę wartość - zwiększona dla lepszego efektu */
     cursor: pointer; /* Dodaj wskaźnik myszy informujący o klikalności */
     /* Upewnij się, że nie ma tu konfliktujących szerokości/marginesów/paddingu */
 }
-.gallery-swiper {
+/* Usunięto zbędną klasę .gallery-swiper */
+/* .gallery-swiper {
   width: 100%;
   margin: auto;
-  overflow: hidden; /* bardzo ważne – ukrywa slajdy wychodzące poza ekran */
-}
+  overflow: hidden;
+} */
 #galeria .swiper-slide img {
     display: block;
     width: 100%; /* Spraw, by obrazek wypełniał szerokość slajdu (w ramach wymiarów slajdu) */
@@ -773,16 +809,21 @@ body.modal-open .contact-form-container {
     /* --swiper-navigation-size: 30px;  Możesz dostosować rozmiar ikon */
     z-index: 10; /* Ensure arrows are above slides and pagination */
     /* Swiper handles left/right positioning by default relative to the container edges */
-	
+	top: 50%; /* Upewnij się, że są wyśrodkowane pionowo */
+    transform: translateY(-50%);
+    padding: 10px; /* Dodaj padding, aby zwiększyć obszar kliknięcia strzałek */
 }
 #galeria .swiper-button-prev {
-    left: 0px; /* Adjust the distance from the left edge of the padding */
+    left: 10px; /* Odstęp od lewej krawędzi kontenera Swipera */
 }
 
 #galeria .swiper-button-next {
-    right: 0px; /* Adjust the distance from the right edge of the padding */
+    right: 10px; /* Odstęp od prawej krawędzi kontenera Swipera */
 }
 /* Stylizacja paginacji Swipera (kropki) */
+#galeria .swiper-pagination {
+    bottom: 10px !important; /* Pozycjonowanie paginacji na dole */
+}
 #galeria .swiper-pagination-bullet {
     background: #555;
     opacity: 1;
@@ -819,8 +860,8 @@ body.modal-open .contact-form-container {
 
 .image-modal-overlay img {
     display: block;
-    max-width: 90%; /* Maksymalna szerokość obrazu w modalu */
-    max-height: 90%; /* Maksymalna wysokość obrazu w modalu */
+    max-width: 95%; /* Maksymalna szerokość obrazu w modalu */
+    max-height: 95%; /* Maksymalna wysokość obrazu w modalu */
     object-fit: contain; /* Dopasuj obraz, zachowując proporcje, bez przycinania */
     transform: scale(0.8); /* Początkowe zmniejszenie dla animacji wejścia */
     transition: transform 0.3s ease-in-out;
@@ -843,34 +884,46 @@ body.image-modal-open {
 @media (max-width: 768px) {
     /* Zmniejszenie paddingu sekcji */
     .page-section {
-        padding: 100px 15px;
+        padding: 60px 15px; /* Zmniejszony padding góra/dół */
     }
 	#home {
         padding-top: 120px; /* Dostosuj tę wartość, jeśli trzeba */
     }
+    #cennik {
+        scroll-margin-top: 80px; /* Dostosuj scroll-margin-top dla mniejszych ekranów */
+    }
+
 
     /* Zmniejszenie rozmiaru nagłówka H1 */
     .H1 {
         font-size: 2rem;
+        margin-bottom: 30px; /* Mniejszy odstęp pod nagłówkiem */
     }
 
     /* Dostosowanie szerokości i marginesów tekstu */
     .tekst {
-        width: 90%;
+        width: 100%; /* Pełna szerokość w ramach .main */
         max-width: none; /* Usunięcie maksymalnej szerokości dla lepszego dopasowania na mniejszych ekranach */
+        padding: 0 10px; /* Dodaj lekki padding dla tekstu */
     }
 
     /* Dostosowanie paddingu w tabeli */
-    #cennik .nazwa-zabiegu,
-    #cennik .cena-zabiegu {
-        padding: 10px 10px;
+    #cennik .price-list th,
+    #cennik .price-list td {
+        padding: 10px; /* Mniejszy padding w tabeli */
         font-size: 0.95rem; /* Nieco mniejsza czcionka w tabeli */
     }
+     #cennik .price-list .nazwa-zabiegu,
+     #cennik .price-list .cena-zabiegu {
+        width: auto; /* Usuń sztywne szerokości kolumn w tabeli na małych ekranach */
+     }
+
 
     /* Zmniejszenie rozmiaru czcionki przycisku rezerwacji */
     .booking-button {
-        font-size: 1rem;
+        font-size: 1.2rem; /* Nieco mniejsza czcionka */
         padding: 12px 25px;
+        margin-top: 30px; /* Mniejszy odstęp */
     }
 
     /* Dostosowanie pozycji stałego przycisku kontaktu */
@@ -884,7 +937,7 @@ body.image-modal-open {
 
     /* Dostosowanie rozmiaru i paddingu modalu */
     .contact-form-container {
-        padding: 20px;
+        padding: 25px; /* Mniejszy padding */
         width: 95%;
     }
 
@@ -903,17 +956,22 @@ body.image-modal-open {
 
     /* Dostosowanie karuzeli na mniejszych ekranach */
     #galeria .swiper-container {
-         width: 90vw; /* Mniejsza szerokość kontenera, np. 90vw dla 5vw marginesu z każdej strony */
-         margin: 20px auto 40px auto; /* Wyśrodkowanie */
+         width: 100%; /* Karuzela zajmuje całą szerokość .main */
+         max-width: 700px; /* Ogranicz maksymalną szerokość na tabletach */
+         margin: 30px auto 40px auto; /* Odstępy */
      }
     /* Dostosowanie wysokości slajdów galerii na mniejszych ekranach */
     #galeria .swiper-slide {
-        height: 250px; /* Nieco mniejsza wysokość */
+        height: 300px; /* Nieco mniejsza wysokość */
     }
      #galeria .swiper-button-next,
      #galeria .swiper-button-prev {
         /* Możesz zmniejszyć rozmiar strzałek tutaj */
-         visibility: none;
+         visibility: hidden; /* Mniejszy padding dla strzałek */
+     }
+     #galeria iframe {
+        height: 350px; /* Mniejsza wysokość mapy */
+        margin-top: 20px; /* Mniejszy odstęp */
      }
 
 }
@@ -922,42 +980,48 @@ body.image-modal-open {
 @media (max-width: 480px) {
      /* Dalsze zmniejszenie paddingu sekcji */
     .page-section {
-        padding: 80px 10px;
+        padding: 50px 10px; /* Mniejszy padding góra/dół/boki */
     }
 	/* Zwiększamy padding-top dla pierwszej sekcji */
     #home {
-        padding-top: 150px; /* Dostosuj tę wartość, jeśli trzeba - może być większa niż dla 768px */
+        padding-top: 100px; /* Dostosuj tę wartość, jeśli trzeba - może być większa niż dla 768px */
     }
+     #cennik {
+        scroll-margin-top: 70px; /* Dostosuj scroll-margin-top dla najmniejszych ekranów */
+     }
      /* Dalsze zmniejszenie rozmiaru nagłówka H1 */
     .H1 {
         font-size: 1.8rem;
+        margin-bottom: 20px; /* Mniejszy odstęp */
     }
 
     /* Dalsze zmniejszenie rozmiaru czcionki tekstu */
     .tekst {
         font-size: 0.9rem;
+        padding: 0 5px; /* Bardzo mały padding */
     }
 
     /* Zmniejszenie paddingu w tabeli na bardzo małych ekranach */
-    #cennik .nazwa-zabiegu,
-    #cennik .cena-zabiegu {
-        padding: 8px 5px;
+    #cennik .price-list th,
+    #cennik .price-list td {
+        padding: 8px; /* Minimalny padding */
         font-size: 0.85rem;
     }
 
     /* Mniejszy rozmiar przycisku rezerwacji */
     .booking-button {
-        font-size: 0.9rem;
+        font-size: 1rem;
         padding: 10px 20px;
+        margin-top: 20px; /* Mniejszy odstęp */
     }
 
     /* Mniejszy stały przycisk kontaktu */
      .contact-button-fixed {
         bottom: 10px;
         right: 10px;
-        width: 45px;
-        height: 45px;
-        font-size: 1.3rem;
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
     }
 
      /* Mniejszy padding modalu */
@@ -979,12 +1043,20 @@ body.image-modal-open {
      }
     /* Dalsze dostosowanie karuzeli na najmniejszych ekranach */
      #galeria .swiper-container {
-         width: 96vw; /* Jeszcze mniejsza szerokość kontenera, np. 96vw dla 2vw marginesu */
-         margin: 20px auto 40px auto; /* Wyśrodkowanie */
+         width: 100%; /* Pełna szerokość kontenera .main */
+         margin: 20px auto 30px auto; /* Odstępy */
+     }
+     #galeria .swiper-slide {
+        height: 200px; /* Minimalna wysokość slajdów */
      }
      #galeria .swiper-button-next,
      #galeria .swiper-button-prev {
-        visibility:none; /* Jeszcze mniejsze strzałki */
+        /* Ukryj strzałki na bardzo małych ekranach, jeśli są zbyt ciasno */
+        visibility: hidden;
+     }
+      #galeria iframe {
+        height: 300px; /* Mniejsza wysokość mapy */
+        margin-top: 15px; /* Mniejszy odstęp */
      }
 }
 
