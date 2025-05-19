@@ -503,7 +503,7 @@ button {
 /* --- Style dla przycisku "Zarezerwuj wizytę" --- */
 .booking-button {
     display: inline-block;
-    margin-top: 5vh;
+    margin-top: 10vh;
     padding: 15px 30px; /* Zwiększony padding */
     text-decoration: none;
     color: #1f1013; /* Kolor tekstu dopasowany do tła */
@@ -855,8 +855,8 @@ body.image-modal-open {
         padding: 100px 15px;
     }
 	#home {
-        padding-top: 110px; /* Dostosuj tę wartość, jeśli trzeba */
-        padding-bottom: 25vh;
+        padding-top: 15vh; /* Dostosuj tę wartość, jeśli trzeba */
+        padding-bottom: 30vh;
 	}
 	#onas {
         padding-bottom: 35vh;
@@ -934,18 +934,16 @@ body.image-modal-open {
 /* Stylizacja dla ekranów o maksymalnej szerokości 480px (małe telefony) */
 @media (max-width: 480px) {
      /* Dalsze zmniejszenie paddingu sekcji */
-    .page-section {
-        padding: 80px 10px;
+       .page-section {
+        padding: 100px 15px;
     }
-	/* Zwiększamy padding-top dla pierwszej sekcji */
-    #home {
-        padding-top: 80px; /* Dostosuj tę wartość, jeśli trzeba - może być większa niż dla 768px */
-  padding-bottom: 25vh;
-    }
-	
-#onas {
-	padding-bottom: 35vh;
-}
+	#home {
+        padding-top: 15vh; /* Dostosuj tę wartość, jeśli trzeba */
+        padding-bottom: 30vh;
+	}
+	#onas {
+        padding-bottom: 35vh;
+	}
      /* Dalsze zmniejszenie rozmiaru nagłówka H1 */
     .H1 {
         font-size: 1.8rem;
