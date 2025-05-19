@@ -56,14 +56,17 @@ button {
   height: auto; /* Dostosuj do proporcji logo, oryginalnie 150px */
   /* Zmieniono czas trwania animacji na 6s (4s animacji + 2s pauzy) */
   animation: logoshow1-animation 6s infinite;
+  z-index: 0;
   /* Usunięto animation-delay, ponieważ pauza jest teraz wbudowana w animację */
   /* animation-delay: 2s; */
 }
 
 .logoplace img.logo {
+
   width: 100%;
   height: auto; /* Aby zachować proporcje obrazka */
   display: block;
+  z-index: 0;
 }
 
 .menu { /* Ten kontener może nie być już potrzebny w tej samej formie */
@@ -75,20 +78,21 @@ button {
   /* justify-content: space-between; */
   /* align-items: center; */
   /* color: #fff; */
+
 }
 
 .hamburger-menu {
   position: fixed; /* Już jest fixed, ale potwierdzamy */
   top: 15px; /* Dopasuj pozycję */
   right: 15px;
-  height: 4rem;
-  width: 3rem;
+  height: 15px;
+  width: 15px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: flex-end;
   animation: logoshow-animation 2s;
-  z-index: 1001; /* Wyżej niż navbar jeśli jest częścią .menu */
+  z-index: 20; /* Wyżej niż navbar jeśli jest częścią .menu */
 }
 
 .bar {
@@ -97,7 +101,8 @@ button {
   border-radius: 2px;
   background-color: #eee;
   transition: 0.5s;
-  position: relative;
+  position: absolute;
+  z-index: 20;
 }
 
 .bar:before,
@@ -108,6 +113,7 @@ button {
   height: inherit;
   background-color: #eee;
   transition: 0.5s;
+    z-index: 20;
 }
 
 .bar:before {
@@ -138,8 +144,7 @@ button {
   width: 100%;
   /* Dodano właściwości mające na celu izolację renderowania */
   isolation: isolate;
-  transform: translateZ(0); /* Popularny hack do tworzenia nowego kontekstu nakładania */
-  z-index: 999;
+  /* Popularny hack do tworzenia nowego kontekstu nakładania */
 }
 
 .page-section {
@@ -151,6 +156,7 @@ button {
   align-items: center; /* Wyśrodkowanie zawartości w poziomie */
   padding: 150px 20px; /* Wewnętrzny padding dla sekcji */
   box-sizing: border-box;
+  z-index: 1200;
 }
 
 .page-section .main { /* Usuwamy pozycjonowanie z oryginalnego .main */
@@ -165,6 +171,7 @@ button {
 
 .page-section header { /* Upewniamy się, że header w sekcji jest odpowiednio szeroki */
   width: 100%;
+  z-index: 1200;
   /* min-height: 100vh; Usunięte, wysokość definiuje .page-section */
 }
 
@@ -178,6 +185,7 @@ button {
   margin-top: 20px; /* Odstęp pod nagłówkiem */
   margin-bottom: 5vh;
   /* Usunięto `text` na końcu linii, literówka */
+  z-index: 1200;
 }
 
 .tekst {
