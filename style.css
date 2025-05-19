@@ -93,7 +93,8 @@ button {
   align-items: center;
   justify-content: flex-end;
   animation: logoshow-animation 2s;
-  z-index: 1320; /* Wyżej niż navbar jeśli jest częścią .menu */
+  z-index: 1001; /* Wyżej niż navbar jeśli jest częścią .menu */
+	background-color: rgba(0,0,0,5);
 }
 
 .bar {
