@@ -307,7 +307,7 @@ document.addEventListener('DOMContentLoaded', () => {
       clearInterval(periodicLightInterval);
     }
     periodicLightInterval = setInterval(() => {
-      const numberOfPeriodicStreaks = 15; // Ile pasków generować co 5 sekund
+      const numberOfPeriodicStreaks = 25; // Ile pasków generować co 5 sekund
       const delayBetweenPeriodic = 100; // Opóźnienie między paskami w interwale
       generateLightsBatch(numberOfPeriodicStreaks, delayBetweenPeriodic, );
     }, periodicIntervalDelay);
@@ -331,7 +331,7 @@ document.addEventListener('DOMContentLoaded', () => {
       console.log("Scroll stopped, potentially generating lights."); // Do debugowania
 
       // Opcjonalnie wygeneruj partię pasków po zatrzymaniu scrollowania (jeśli chcesz inny zestaw niż okresowy)
-      const numberOfStreaksOnStop = 5;
+      const numberOfStreaksOnStop = 25;
       const delayBetweenStopStreaks = 100;
       generateLightsBatch(numberOfStreaksOnStop, delayBetweenStopStreaks);
 
