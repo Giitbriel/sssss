@@ -421,11 +421,11 @@ button {
 }
 
 #onas {
-	margin-bottom: 950px;
+	padding-bottom: 35vh;
 }
 
 #home {
-	margin-bottom: 1000px;
+	padding-bottom: 25vh;
 }
 /* Przykład reguły dla .xN (pozostawiamy left i transform, usuwamy animation) */
 .x1{ -webkit-transform: scale(1.0); transform: scale(1.0); left: 3%; }
@@ -855,8 +855,12 @@ body.image-modal-open {
         padding: 100px 15px;
     }
 	#home {
-        padding-top: 100px; /* Dostosuj tę wartość, jeśli trzeba */
-    }
+        padding-top: 110px; /* Dostosuj tę wartość, jeśli trzeba */
+        padding-bottom: 25vh;
+	}
+	#onas {
+        padding-bottom: 25vh;
+	}
 
     /* Zmniejszenie rozmiaru nagłówka H1 */
     .H1 {
@@ -936,7 +940,12 @@ body.image-modal-open {
 	/* Zwiększamy padding-top dla pierwszej sekcji */
     #home {
         padding-top: 80px; /* Dostosuj tę wartość, jeśli trzeba - może być większa niż dla 768px */
+  padding-bottom: 25vh;
     }
+	
+#onas {
+	padding-bottom:25vh;
+}
      /* Dalsze zmniejszenie rozmiaru nagłówka H1 */
     .H1 {
         font-size: 1.8rem;
