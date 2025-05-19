@@ -308,7 +308,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     periodicLightInterval = setInterval(() => {
       const numberOfPeriodicStreaks = 10; // Ile pasków generować co 5 sekund
-      const delayBetweenPeriodic = 100; // Opóźnienie między paskami w interwale
+      const delayBetweenPeriodic = 10000; // Opóźnienie między paskami w interwale
       generateLightsBatch(numberOfPeriodicStreaks, delayBetweenPeriodic, );
     }, periodicIntervalDelay);
   }
