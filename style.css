@@ -158,7 +158,8 @@ button {
   box-sizing: border-box;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 10vh;
+  margin-top: 0px;
+ margin-bottom: 0px;
 }
 
 .page-section .main { /* Usuwamy pozycjonowanie z oryginalnego .main */
