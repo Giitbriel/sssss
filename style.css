@@ -317,28 +317,42 @@ button {
   margin: 0 auto; /* Wyśrodkowanie */
 }
 
-#cennik #table-scroll {
-  /* height:100vh; Usunięte - tabela powinna zająć tyle miejsca ile potrzebuje */
-  overflow-x: auto; /* Pozwala na przewijanie tabeli w poziomie jeśli jest za szeroka */
-  margin-top: 20px;
+#cennik .price-list table {
+    width: 100%; /* Tabela zajmuje całą dostępną szerokość */
+    border-collapse: collapse; /* Usuń odstępy między komórkami */
+    margin-top: 30px; /* Odstęp od nagłówka */
 }
 
-#cennik table {
-  width: 100%;
-  border-collapse: collapse;
-  color: #fff8f8;
+#cennik .price-list th,
+#cennik .price-list td {
+    border: 1px solid #333; /* Ciemna ramka */
+    padding: 12px 15px; /* Padding wewnątrz komórek */
+    text-align: left; /* Wyrównanie tekstu do lewej */
 }
 
-#cennik .nazwa-zabiegu, #cennik .cena-zabiegu {
-  border-bottom: 2px #aeaeae double; /* Uproszczony border */
-  padding: 12px 15px; /* Zwiększony padding */
-  text-align: left;
+#cennik .price-list th {
+    background-color: #222; /* Ciemniejsze tło dla nagłówków tabeli */
+    color: #fff;
+    font-weight: 700; /* Pogrubienie tekstu nagłówków */
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-#cennik .cena-zabiegu {
-  text-align: right;
-  white-space: nowrap; /* Zapobiega łamaniu cen */
+#cennik .price-list td {
+    background-color: #1a1a1a; /* Nieco jaśniejsze tło dla danych */
+    color: #cccccc;
 }
+
+#cennik .price-list tr:nth-child(even) td {
+    background-color: #111; /* Alternatywne tło dla wierszy parzystych */
+}
+
+#cennik .price-list .cena-zabiegu {
+    text-align: right; /* Cena wyrównana do prawej */
+    color: #c5a34f; /* Kolor wyróżniający cenę */
+    font-weight: 600;
+}
+
 
 /* Style specyficzne dla sekcji Kontakt */
 #kontakt iframe {
