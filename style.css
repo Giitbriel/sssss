@@ -41,7 +41,7 @@ button {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1000; /* Podniesiony z-index dla pewności */
+  z-index: 998; /* Podniesiony z-index dla pewności */
   height: auto; /* Dostosuj wysokość do zawartości logo, np. padding */
   padding: 15px 0px 0px 15px; /* Przeniesione z .logoplace dla uproszczenia */
   display: flex; /* Aby hamburger menu był obok logo jeśli trzeba */
@@ -143,7 +143,7 @@ button {
 
 .page-section {
   min-height: 98vh; /* Każda sekcja zajmuje co najmniej wysokość ekranu */
-  width: 85vw;
+  width: 95vw;
   display: flex;
   flex-direction: column;
   justify-content: top; /* Wyśrodkowanie zawartości w pionie */
@@ -890,7 +890,7 @@ body.image-modal-open {
      #galeria .swiper-button-next,
      #galeria .swiper-button-prev {
         /* Możesz zmniejszyć rozmiar strzałek tutaj */
-         --swiper-navigation-size: 25px;
+         visibility: none;
      }
 
 }
@@ -961,7 +961,7 @@ body.image-modal-open {
      }
      #galeria .swiper-button-next,
      #galeria .swiper-button-prev {
-         --swiper-navigation-size: 20px; /* Jeszcze mniejsze strzałki */
+        visibility:none; /* Jeszcze mniejsze strzałki */
      }
 }
 
