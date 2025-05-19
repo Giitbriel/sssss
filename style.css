@@ -41,7 +41,7 @@ button {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 8; /* Podniesiony z-index dla pewności */
+  z-index: 0; /* Podniesiony z-index dla pewności */
   height: auto; /* Dostosuj wysokość do zawartości logo, np. padding */
   padding: 15px 0px 0px 15px; /* Przeniesione z .logoplace dla uproszczenia */
   display: flex; /* Aby hamburger menu był obok logo jeśli trzeba */
