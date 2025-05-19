@@ -156,10 +156,8 @@ button {
   align-items: center; /* Wyśrodkowanie zawartości w poziomie */
  /* padding: 150px 20px;  Wewnętrzny padding dla sekcji */
   box-sizing: border-box;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 0px;
- margin-bottom: 0px;
+  margin: 0 auto;
+  padding-bottom: 15vh;
 }
 
 .page-section .main { /* Usuwamy pozycjonowanie z oryginalnego .main */
@@ -185,8 +183,8 @@ button {
   color: #fff;
   animation: logoshow-animation 2s; /* Powtarza się, można by to dać na .main */
   font-size: 2.7rem;
-  margin-top: 20px; /* Odstęp pod nagłówkiem */
-  margin-bottom: 5vh;
+  /*margin-top: 20px; *//* Odstęp pod nagłówkiem */
+  margin-bottom: 15px;
   /* Usunięto `text` na końcu linii, literówka */
  
 }
@@ -309,7 +307,7 @@ button {
 }
 
 #cennik {
-  scroll-margin-top: -170px; /* Dodana linia */
+  scroll-margin-top: -110px; /* Dodana linia */
   /* pozostałe style dla #cennik */
 }
 /* Style specyficzne dla sekcji Cennik */
@@ -323,7 +321,7 @@ button {
 #cennik .price-list table {
     width: 100%; /* Tabela zajmuje całą dostępną szerokość */
     border-collapse: collapse; /* Usuń odstępy między komórkami */
-    margin-top: 30px; /* Odstęp od nagłówka */
+    margin-top: 15px; /* Odstęp od nagłówka */
 }
 
 #cennik .price-list th,
@@ -420,13 +418,13 @@ button {
   top: 100vh;
 }
 
-#onas {
+/*#onas {
 	padding-bottom: 35vh;
 }
 
 #home {
 	padding-bottom: 25vh;
-}
+}*/
 /* Przykład reguły dla .xN (pozostawiamy left i transform, usuwamy animation) */
 .x1{ -webkit-transform: scale(1.0); transform: scale(1.0); left: 3%; }
 .x2{ -webkit-transform: scale(1.6); transform: scale(1.6); left: 10%; }
@@ -741,7 +739,7 @@ body.modal-open .contact-form-container {
 
 #galeria .swiper-container {
      width: calc(100vw - 20vw); /* Czyli 80vw szerokości */
-    margin: 5px auto 50px auto; /* Wyśrodkowanie poziome + marginesy góra/dół */
+    margin: 5px auto 5px auto; /* Wyśrodkowanie poziome + marginesy góra/dół */
     position: relative;
     z-index: 1;
     box-sizing: border-box;
