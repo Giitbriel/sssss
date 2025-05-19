@@ -362,7 +362,7 @@ button {
   width: 100%; /* Zmienione na 100% szerokości kontenera .main */
   max-width: 80vw; /* Maksymalna szerokość mapy */
   height: 450px; /* Zwiększona wysokość dla lepszej widoczności */
-  margin: 10px auto 0 auto; /* Wyśrodkowanie i odstęp */
+  margin: 10px auto 50px auto; /* Wyśrodkowanie i odstęp */
   animation: logoshow-animation 2s;
 }
 
@@ -418,12 +418,14 @@ button {
   top: 100vh;
 }
 
-/*#onas {
+#onas {
 	padding-bottom: 35vh;
+
+
 }
 
 #home {
-	padding-bottom: 25vh;
+	padding-top: 120px;
 }*/
 /* Przykład reguły dla .xN (pozostawiamy left i transform, usuwamy animation) */
 .x1{ -webkit-transform: scale(1.0); transform: scale(1.0); left: 3%; }
