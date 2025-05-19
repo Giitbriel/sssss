@@ -142,7 +142,7 @@ button {
 }
 
 .page-section {
-  min-height: 85vh; /* Każda sekcja zajmuje co najmniej wysokość ekranu */
+  min-height: 95vh; /* Każda sekcja zajmuje co najmniej wysokość ekranu */
   width: 100%;
   display: flex;
   flex-direction: column;
