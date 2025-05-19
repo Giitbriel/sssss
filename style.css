@@ -855,10 +855,11 @@ body.image-modal-open {
         padding: 100px 15px;
     }
 	#home {
-        padding-top: 15vh; /* Dostosuj tę wartość, jeśli trzeba */
+        padding-top: 20vh; /* Dostosuj tę wartość, jeśli trzeba */
         padding-bottom: 30vh;
 	}
 	#onas {
+	padding-top: 10vh;
         padding-bottom: 35vh;
 	}
 
@@ -938,10 +939,11 @@ body.image-modal-open {
         padding: 100px 15px;
     }
 	#home {
-        padding-top: 15vh; /* Dostosuj tę wartość, jeśli trzeba */
+        padding-top: 20vh; /* Dostosuj tę wartość, jeśli trzeba */
         padding-bottom: 30vh;
 	}
 	#onas {
+	padding-top: 10vh;
         padding-bottom: 35vh;
 	}
      /* Dalsze zmniejszenie rozmiaru nagłówka H1 */
