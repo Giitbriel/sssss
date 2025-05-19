@@ -92,7 +92,7 @@ button {
   align-items: center;
   justify-content: flex-end;
   animation: logoshow-animation 2s;
-  z-index: 20; /* Wyżej niż navbar jeśli jest częścią .menu */
+  z-index: 1320; /* Wyżej niż navbar jeśli jest częścią .menu */
 }
 
 .bar {
@@ -156,7 +156,7 @@ button {
   align-items: center; /* Wyśrodkowanie zawartości w poziomie */
   padding: 150px 20px; /* Wewnętrzny padding dla sekcji */
   box-sizing: border-box;
-  z-index: 1200;
+  
 }
 
 .page-section .main { /* Usuwamy pozycjonowanie z oryginalnego .main */
@@ -166,12 +166,12 @@ button {
   animation: logoshow-animation 2s; /* Zachowujemy animację wejścia */
   margin: 0 auto; /* Wyśrodkowanie */
   position: relative; /* DODANE: Ustawienie pozycji */
-  z-index: 1002;
+  z-index: 10;
 }
 
 .page-section header { /* Upewniamy się, że header w sekcji jest odpowiednio szeroki */
   width: 100%;
-  z-index: 1200;
+ z-index: 10;
   /* min-height: 100vh; Usunięte, wysokość definiuje .page-section */
 }
 
@@ -185,7 +185,7 @@ button {
   margin-top: 20px; /* Odstęp pod nagłówkiem */
   margin-bottom: 5vh;
   /* Usunięto `text` na końcu linii, literówka */
-  z-index: 1200;
+ 
 }
 
 .tekst {
