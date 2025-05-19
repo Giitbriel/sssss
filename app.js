@@ -331,8 +331,8 @@ document.addEventListener('DOMContentLoaded', () => {
       console.log("Scroll stopped, potentially generating lights."); // Do debugowania
 
       // Opcjonalnie wygeneruj partię pasków po zatrzymaniu scrollowania (jeśli chcesz inny zestaw niż okresowy)
-      const numberOfStreaksOnStop = 25;
-      const delayBetweenStopStreaks = 100;
+      const numberOfStreaksOnStop = 8;
+      const delayBetweenStopStreaks = 1500;
       generateLightsBatch(numberOfStreaksOnStop, delayBetweenStopStreaks);
 
 
