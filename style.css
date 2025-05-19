@@ -87,6 +87,7 @@ button {
   right: 15px;
   height: 15px;
   width: 1.5px;
+  padding: 7.5px;
   cursor: pointer;
   display: flex;
   align-items: center;
