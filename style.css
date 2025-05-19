@@ -85,8 +85,8 @@ button {
   position: fixed; /* Już jest fixed, ale potwierdzamy */
   top: 15px; /* Dopasuj pozycję */
   right: 15px;
-  height: 15px;
-  width: 1.5px;
+  height: 30px;
+  width: 40px;
   padding: 7.5px;
   cursor: pointer;
   display: flex;
