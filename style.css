@@ -419,12 +419,13 @@ button {
 }
 
 #onas {
-	padding-bottom: 35vh;
+	min-height: 100vh;
 
 
 }
 
 #home {
+	min-height: 100vh /*jesli nie chcemy galerii na glownej */
 	padding-top: 120px;
 }*/
 /* Przykład reguły dla .xN (pozostawiamy left i transform, usuwamy animation) */
@@ -856,11 +857,10 @@ body.image-modal-open {
     }
 	#home {
         padding-top: 20vh; /* Dostosuj tę wartość, jeśli trzeba */
-        padding-bottom: 30vh;
+        min-height: 100vh;
 	}
 	#onas {
-	padding-top: 10vh;
-        padding-bottom: 35vh;
+	min-height: 100vh;
 	}
 
     /* Zmniejszenie rozmiaru nagłówka H1 */
@@ -940,11 +940,10 @@ body.image-modal-open {
     }
 	#home {
         padding-top: 20vh; /* Dostosuj tę wartość, jeśli trzeba */
-        padding-bottom: 30vh;
+        min-height: 100vh;
 	}
 	#onas {
-	padding-top: 10vh;
-        padding-bottom: 35vh;
+	min-height: 100vh;
 	}
      /* Dalsze zmniejszenie rozmiaru nagłówka H1 */
     .H1 {
