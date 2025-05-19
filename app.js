@@ -234,7 +234,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let scrollTimeout;
   const scrollTimeoutDelay = 250; // Opóźnienie do wykrycia końca scrollowania w ms
 
-  const periodicIntervalDelay = 2500; // 5 sekund
+  const periodicIntervalDelay = 11500; // 5 sekund
   let periodicLightInterval;
 
   // Funkcja do tworzenia i animowania pojedynczego paska
