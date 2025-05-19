@@ -234,7 +234,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let scrollTimeout;
   const scrollTimeoutDelay = 250; // Opóźnienie do wykrycia końca scrollowania w ms
 
-  const periodicIntervalDelay = 5000; // 5 sekund
+  const periodicIntervalDelay = 2500; // 5 sekund
   let periodicLightInterval;
 
   // Funkcja do tworzenia i animowania pojedynczego paska
@@ -293,7 +293,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // --- Generowanie pasków przy ładowaniu strony ---
-  const numberOfInitialStreaks = 8; // Ile pasków pojawia się na początku
+  const numberOfInitialStreaks = 15; // Ile pasków pojawia się na początku
   const initialDelayBetween = 150; // Opóźnienie między początkowymi paskami
 
   // Generuj paski przy ładowaniu DOM
