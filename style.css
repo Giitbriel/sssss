@@ -10,7 +10,9 @@
 html {
   scroll-behavior: smooth; /* Dla płynnego przewijania po kliknięciu linku z # */
 }
-
+body.menu-active {
+    overflow: hidden;
+}
 body,
 button {
   font-family: "Poppins", sans-serif;
@@ -140,7 +142,7 @@ button {
 }
 
 .page-section {
-  min-height: 100vh; /* Każda sekcja zajmuje co najmniej wysokość ekranu */
+  min-height: 85vh; /* Każda sekcja zajmuje co najmniej wysokość ekranu */
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -156,6 +158,8 @@ button {
   text-align: center; /* Domyślne wyśrodkowanie tekstu w sekcji */
   animation: logoshow-animation 2s; /* Zachowujemy animację wejścia */
   margin: 0 auto; /* Wyśrodkowanie */
+  position: relative; /* DODANE: Ustawienie pozycji */
+  z-index: 1002;
 }
 
 .page-section header { /* Upewniamy się, że header w sekcji jest odpowiednio szeroki */
@@ -292,7 +296,10 @@ button {
   transform: scale(1.1); /* Lekkie powiększenie */
 }
 
-
+#cennik {
+  scroll-margin-top: -170px; /* Dodana linia */
+  /* pozostałe style dla #cennik */
+}
 /* Style specyficzne dla sekcji Cennik */
 #cennik #table-wrapper {
   position: relative;
@@ -329,22 +336,22 @@ button {
   display: block;
   border-style: none;
   width: 100%; /* Zmienione na 100% szerokości kontenera .main */
-  max-width: 700px; /* Maksymalna szerokość mapy */
+  max-width: 80vw; /* Maksymalna szerokość mapy */
   height: 450px; /* Zwiększona wysokość dla lepszej widoczności */
-  margin: 20px auto 0 auto; /* Wyśrodkowanie i odstęp */
+  margin: 10px auto 0 auto; /* Wyśrodkowanie i odstęp */
   animation: logoshow-animation 2s;
 }
 
 
 /* Rozmycie tła i zmiana logo po otwarciu menu */
 /* Usunięto regułę powodującą rozmycie i zanikanie głównej treści */
-/*
+
 .container.active .page-section .main {
   filter: blur(5px);
   opacity: 0.7;
-  transition: filter 0.7s ease-out, opacity 0.7s ease-out;
+  transition: filter 0.5s ease-out, opacity 0.5s ease-out;
 }
-*/
+
 
 /* Jawne ustawienie braku efektów na głównym kontenerze treści, gdy menu jest aktywne */
 .container.active .main-container {
@@ -701,14 +708,12 @@ body.modal-open .contact-form-container {
 }
 
 #galeria .swiper-container {
-    /* Zastosuj margines 10vw tutaj, ustawiając szerokość i centrując */
-    width: 100vw; /* Szerokość kontenera = 100% viewport - 10vw z lewej - 10vw z prawej */
-    margin: 5px 0px 40px -10px; /* Wyśrodkuj kontener i dodaj marginesy pionowe */
-    /* padding-bottom: 40px; -- Usunięte, margines dolny w margin */
+     width: calc(100vw - 20vw); /* Czyli 80vw szerokości */
+    margin: 5px auto 50px auto; /* Wyśrodkowanie poziome + marginesy góra/dół */
     position: relative;
     z-index: 1;
-    box-sizing: border-box; /* Upewnij się, że padding/border są wliczone w szerokość */
-	 padding: 0 50px;
+    box-sizing: border-box;
+    padding: 0 30px; /* jeśli potrzebujesz wewnętrznego odsunięcia od krawędzi */
 }
 
 #galeria .swiper-slide {
@@ -745,13 +750,14 @@ body.modal-open .contact-form-container {
     /* --swiper-navigation-size: 30px;  Możesz dostosować rozmiar ikon */
     z-index: 10; /* Ensure arrows are above slides and pagination */
     /* Swiper handles left/right positioning by default relative to the container edges */
+	
 }
 #galeria .swiper-button-prev {
-    left: 10px; /* Adjust the distance from the left edge of the padding */
+    left: 0px; /* Adjust the distance from the left edge of the padding */
 }
 
 #galeria .swiper-button-next {
-    right: 10px; /* Adjust the distance from the right edge of the padding */
+    right: 0px; /* Adjust the distance from the right edge of the padding */
 }
 /* Stylizacja paginacji Swipera (kropki) */
 #galeria .swiper-pagination-bullet {
@@ -815,6 +821,9 @@ body.image-modal-open {
     /* Zmniejszenie paddingu sekcji */
     .page-section {
         padding: 100px 15px;
+    }
+	#home {
+        padding-top: 120px; /* Dostosuj tę wartość, jeśli trzeba */
     }
 
     /* Zmniejszenie rozmiaru nagłówka H1 */
@@ -892,7 +901,10 @@ body.image-modal-open {
     .page-section {
         padding: 80px 10px;
     }
-
+	/* Zwiększamy padding-top dla pierwszej sekcji */
+    #home {
+        padding-top: 150px; /* Dostosuj tę wartość, jeśli trzeba - może być większa niż dla 768px */
+    }
      /* Dalsze zmniejszenie rozmiaru nagłówka H1 */
     .H1 {
         font-size: 1.8rem;
