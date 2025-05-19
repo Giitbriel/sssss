@@ -420,7 +420,9 @@ button {
   top: 100vh;
 }
 
-
+#onas {
+	margin-top:25vh;
+}
 /* Przykład reguły dla .xN (pozostawiamy left i transform, usuwamy animation) */
 .x1{ -webkit-transform: scale(1.0); transform: scale(1.0); left: 3%; }
 .x2{ -webkit-transform: scale(1.6); transform: scale(1.6); left: 10%; }
