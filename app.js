@@ -227,7 +227,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ---- Dynamiczna animacja pasków świetlnych ----
 
   const lightClasses = ['x1', 'x2', 'x3', 'x4', 'x5', 'x6', 'x7', 'x8', 'x9', 'x10', 'x11', 'x12', 'x13', 'x14', 'x15']; // Tablica dostępnych klas xN
-  const animationDuration = 10000; // Czas trwania animacji jednego paska (w milisekundach) - zwiększono dla wolniejszego ruchu
+  const animationDuration = 6000; // Czas trwania animacji jednego paska (w milisekundach) - zwiększono dla wolniejszego ruchu
   // animationDistance nie jest już bezpośrednio używane, ruch jest od startTop do endTop
 
 
