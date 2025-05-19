@@ -421,11 +421,11 @@ button {
 }
 
 #onas {
-	margin-bottom:35vh;
+	margin-bottom: 950px;
 }
 
 #home {
-	margin-bottom:25vh;
+	margin-bottom: 1000px;
 }
 /* Przykład reguły dla .xN (pozostawiamy left i transform, usuwamy animation) */
 .x1{ -webkit-transform: scale(1.0); transform: scale(1.0); left: 3%; }
