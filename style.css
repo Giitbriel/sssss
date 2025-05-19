@@ -133,7 +133,7 @@ button {
 /* Kontener główny dla sekcji */
 .main-container {
   padding-top: 20px; /* Dodaj odstep od góry, aby zawartość nie chowała się pod fixed navbar, dostosuj wartość */
-  width: 100vw;
+  width: 100%;
   /* Dodano właściwości mające na celu izolację renderowania */
   isolation: isolate;
   transform: translateZ(0); /* Popularny hack do tworzenia nowego kontekstu nakładania */
@@ -348,7 +348,7 @@ button {
 
 /* Jawne ustawienie braku efektów na głównym kontenerze treści, gdy menu jest aktywne */
 .container.active .main-container {
-    filter: blur(15px) !important; /* Dodano !important dla pewności */
+    filter: none !important; /* Dodano !important dla pewności */
     opacity: 1 !important; /* Dodano !important dla pewności */
     transition: none !important; /* Usunięto wszelkie przejścia */
     /* Dodano właściwości, które mogą wpływają na renderowanie */
@@ -693,7 +693,7 @@ body.modal-open .contact-form-container {
     /* Pozostawiamy podstawowe style main, usuwamy padding/width/max-width związane z marginesem 10vw */
     text-align: center;
     animation: logoshow-animation 2s;
-    width: 800px;
+    width: 100%;
     max-width: none; /* Upewnij się, że może być szerszy niż domyślne 960px */
     box-sizing: border-box;
     margin: 0 auto;
@@ -702,7 +702,7 @@ body.modal-open .contact-form-container {
 
 #galeria .swiper-container {
     /* Zastosuj margines 10vw tutaj, ustawiając szerokość i centrując */
-    width: 600px; /* Szerokość kontenera = 100% viewport - 10vw z lewej - 10vw z prawej */
+    width: 100vw; /* Szerokość kontenera = 100% viewport - 10vw z lewej - 10vw z prawej */
     margin: 5px 0px 40px -10px; /* Wyśrodkuj kontener i dodaj marginesy pionowe */
     /* padding-bottom: 40px; -- Usunięte, margines dolny w margin */
     position: relative;
@@ -725,7 +725,11 @@ body.modal-open .contact-form-container {
     cursor: pointer; /* Dodaj wskaźnik myszy informujący o klikalności */
     /* Upewnij się, że nie ma tu konfliktujących szerokości/marginesów/paddingu */
 }
-
+.gallery-swiper {
+  width: 100%;
+  margin: auto;
+  overflow: hidden; /* bardzo ważne – ukrywa slajdy wychodzące poza ekran */
+}
 #galeria .swiper-slide img {
     display: block;
     width: 100%; /* Spraw, by obrazek wypełniał szerokość slajdu (w ramach wymiarów slajdu) */
@@ -867,7 +871,7 @@ body.image-modal-open {
 
     /* Dostosowanie karuzeli na mniejszych ekranach */
     #galeria .swiper-container {
-         width: 768px; /* Mniejsza szerokość kontenera, np. 90vw dla 5vw marginesu z każdej strony */
+         width: 90vw; /* Mniejsza szerokość kontenera, np. 90vw dla 5vw marginesu z każdej strony */
          margin: 20px auto 40px auto; /* Wyśrodkowanie */
      }
     /* Dostosowanie wysokości slajdów galerii na mniejszych ekranach */
