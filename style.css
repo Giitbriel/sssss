@@ -848,7 +848,7 @@ body.image-modal-open {
         padding: 100px 15px;
     }
 	#home {
-        padding-top: 120px; /* Dostosuj tę wartość, jeśli trzeba */
+        padding-top: 100px; /* Dostosuj tę wartość, jeśli trzeba */
     }
 
     /* Zmniejszenie rozmiaru nagłówka H1 */
@@ -928,7 +928,7 @@ body.image-modal-open {
     }
 	/* Zwiększamy padding-top dla pierwszej sekcji */
     #home {
-        padding-top: 150px; /* Dostosuj tę wartość, jeśli trzeba - może być większa niż dla 768px */
+        padding-top: 80px; /* Dostosuj tę wartość, jeśli trzeba - może być większa niż dla 768px */
     }
      /* Dalsze zmniejszenie rozmiaru nagłówka H1 */
     .H1 {
