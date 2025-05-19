@@ -415,9 +415,13 @@ button {
   height: 1vh;
   opacity: .75;
   background-color:#DAA520;
-  box-shadow: #DAA520 150px 10px 18px 2px;
+  box-shadow: #DAA520 0px 0px 20px 2px;
   opacity: 0;
   top: 100vh;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  margin: auto;
 }
 
 #onas {
