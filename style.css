@@ -139,6 +139,7 @@ button {
   /* Dodano właściwości mające na celu izolację renderowania */
   isolation: isolate;
   transform: translateZ(0); /* Popularny hack do tworzenia nowego kontekstu nakładania */
+  z-index: 999;
 }
 
 .page-section {
