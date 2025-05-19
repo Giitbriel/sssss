@@ -157,7 +157,8 @@ button {
  /* padding: 150px 20px;  Wewnętrzny padding dla sekcji */
   box-sizing: border-box;
   margin: 0 auto;
-  padding-bottom: 15vh;
+  
+  padding-top: 20vh;
 }
 
 .page-section .main { /* Usuwamy pozycjonowanie z oryginalnego .main */
@@ -853,13 +854,15 @@ body.image-modal-open {
 @media (max-width: 768px) {
     /* Zmniejszenie paddingu sekcji */
     .page-section {
-        padding: 100px 15px;
+	    padding-top: 20vh 5vw;
+        /*padding: 100px 15px; */
     }
 	#home {
         padding-top: 20vh; /* Dostosuj tę wartość, jeśli trzeba */
         min-height: 100vh;
 	}
 	#onas {
+	padding-top: 20vh;
 	min-height: 100vh;
 	}
 
@@ -935,14 +938,16 @@ body.image-modal-open {
 /* Stylizacja dla ekranów o maksymalnej szerokości 480px (małe telefony) */
 @media (max-width: 480px) {
      /* Dalsze zmniejszenie paddingu sekcji */
-       .page-section {
-        padding: 100px 15px;
+      .page-section {
+	    padding-top: 20vh 5vw;
+        /*padding: 100px 15px; */
     }
 	#home {
         padding-top: 20vh; /* Dostosuj tę wartość, jeśli trzeba */
         min-height: 100vh;
 	}
 	#onas {
+	padding-top: 20vh;
 	min-height: 100vh;
 	}
      /* Dalsze zmniejszenie rozmiaru nagłówka H1 */
