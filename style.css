@@ -85,8 +85,8 @@ button {
   position: fixed; /* Już jest fixed, ale potwierdzamy */
   top: 15px; /* Dopasuj pozycję */
   right: 15px;
-  height: 30px;
-  width: 40px;
+  height: 2rem;
+  width: 2.2rem;
   padding: 7.5px;
   cursor: pointer;
   display: flex;
@@ -94,11 +94,10 @@ button {
   justify-content: flex-end;
   animation: logoshow-animation 2s;
   z-index: 1001; /* Wyżej niż navbar jeśli jest częścią .menu */
-	background-color: rgba(0,0,0,5);
 }
 
 .bar {
-  width: 1.9rem;
+  width: 2.2rem;
   height: 1.5px;
   border-radius: 2px;
   background-color: #eee;
