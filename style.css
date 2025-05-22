@@ -141,7 +141,7 @@ button {
 
 /* Kontener główny dla sekcji */
 .main-container {
-  padding-top: 20vh; /* Dodaj odstep od góry, aby zawartość nie chowała się pod fixed navbar, dostosuj wartość */
+  /*padding-top: 20vh;  Dodaj odstep od góry, aby zawartość nie chowała się pod fixed navbar, dostosuj wartość */
   width: 100%;
   /* Dodano właściwości mające na celu izolację renderowania */
   isolation: isolate;
