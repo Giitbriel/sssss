@@ -210,12 +210,9 @@ if (isValid) {
         alert('Wystąpił problem z połączeniem. Spróbuj ponownie później.');
         grecaptcha.reset(); // Resetuj CAPTCHA również przy błędach sieci
     });
-
-} else {
-    // Walidacja po stronie klienta nie przeszła (błędy wyświetlone w spanach)
-    // Nic więcej nie musimy robić, bo isValid jest false i fetch nie zostanie wywołany.
-}
-
+ } else {
+   }
+  });
       // Poniższy kod działa od razu po pomyślnej walidacji CAPTCHA i pól JS, bez faktycznej wysyłki
     /*  hideModal(); // Ukryj modal
       showNotification("Dziękujemy, wiadomość do nas leci."); // Pokaż powiadomienie
@@ -230,12 +227,11 @@ if (isValid) {
         // window.scrollTo({ top: 0, behavior: 'smooth' });
       }, 2000); // 2000 ms = 2 sekundy
 */
-    } else {
+    
       // Walidacja JS nie przeszła (pola puste lub CAPTCHA błędna)
       // Komunikat błędu CAPTCHA jest już wyświetlany w spanie .captcha-error
       // Komunikat o pustych polach jest w alercie, można to zmienić na komunikat na stronie.
-    }
-  });
+ 
 
   // Generuj pierwszą CAPTCHA przy ładowaniu strony
   
