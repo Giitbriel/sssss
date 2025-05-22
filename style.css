@@ -424,16 +424,11 @@ button {
   margin: auto;
 }
 
-#onas {
-	min-height: 100vh;
-
-
-}
-
-/*#home {
-	min-height: 100vh; jesli nie chcemy galerii na glownej 
-	padding-top: 120px;
-}*/
+#home, #onas, #galeria, #cennik, #kontakt {
+        padding-top: 20vh;  /*Dostosuj tę wartość, jeśli trzeba */
+        min-height: 100vh;
+	}
+	
 /* Przykład reguły dla .xN (pozostawiamy left i transform, usuwamy animation) */
 .x1{ -webkit-transform: scale(1.0); transform: scale(1.0); left: 3%; }
 .x2{ -webkit-transform: scale(1.6); transform: scale(1.6); left: 10%; }
@@ -864,15 +859,11 @@ body.image-modal-open {
 
         /*padding: 100px 15px; */
     }
-	/*#home {
-        padding-top: 20vh;  Dostosuj tę wartość, jeśli trzeba 
+	#home, #onas, #galeria, #cennik, #kontakt {
+        padding-top: 20vh;  /*Dostosuj tę wartość, jeśli trzeba */
         min-height: 100vh;
 	}
-	#onas {
-	padding-top: 20vh;
-	min-height: 100vh;
-	}
-*/
+	
     /* Zmniejszenie rozmiaru nagłówka H1 */
     .H1 {
         font-size: 2rem;
@@ -950,14 +941,11 @@ body.image-modal-open {
 	    min-height: 100vh;
         /*padding: 100px 15px; */
     }
-	/*#home {
-        padding-top: 20vh;  Dostosuj tę wartość, jeśli trzeba 
+	#home, #onas, #galeria, #cennik, #kontakt {
+        padding-top: 20vh;  /*Dostosuj tę wartość, jeśli trzeba */
         min-height: 100vh;
 	}
-	#onas {
-	padding-top: 20vh;
-	min-height: 100vh;
-	}*/
+	
      /* Dalsze zmniejszenie rozmiaru nagłówka H1 */
     .H1 {
         font-size: 1.8rem;
