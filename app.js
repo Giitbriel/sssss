@@ -45,41 +45,18 @@ document.addEventListener('DOMContentLoaded', () => {
   const contactForm = document.getElementById("contactForm");
   const notificationPopup = document.querySelector(".notification-popup");
 
-  const captchaProblemSpan = document.getElementById("captcha-problem");
-  const captchaInput = document.getElementById("captcha-input");
-  const captchaErrorSpan = document.querySelector(".captcha-error");
+
 
   let captchaSolution = 0; // Zmienna do przechowywania poprawnej odpowiedzi CAPTCHA
 
   // Funkcja do generowania nowej CAPTCHA
-  function generateCaptcha() {
-    const num1 = Math.floor(Math.random() * 10) + 1; // Liczba od 1 do 10
-    const num2 = Math.floor(Math.random() * 10) + 1; // Liczba od 1 do 10
-    const operator = Math.random() > 0.5 ? '+' : '-'; // Losowy operator (+ lub -)
-
-    if (operator === '+') {
-      captchaSolution = num1 + num2;
-      captchaProblemSpan.textContent = `${num1} + ${num2}`;
-    } else {
-      // Zapobiegamy ujemnym wynikom dla prostoty
-      if (num1 < num2) {
-        captchaSolution = num2 - num1;
-        captchaProblemSpan.textContent = `${num2} - ${num1}`;
-      } else {
-        captchaSolution = num1 - num2;
-        captchaProblemSpan.textContent = `${num1} - ${num2}`;
-      }
-    }
-    captchaErrorSpan.textContent = ""; // Czyścimy ewentualny poprzedni błąd
-    captchaInput.value = ""; // Czyścimy pole odpowiedzi
-  }
-
+  
   // Funkcja do pokazywania modalu
   function showModal() {
     modalOverlay.style.visibility = "visible";
     modalOverlay.style.opacity = "1";
     document.body.classList.add("modal-open"); // Dodaje klasę do body do blokowania scrolla
-    generateCaptcha(); // Generuje nową CAPTCHA przy każdym otwarciu
+    // Generuje nową CAPTCHA przy każdym otwarciu
   }
 
   // Funkcja do ukrywania modalu
@@ -137,14 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
       isValid = false;
     }
 
-    // Walidacja CAPTCHA
-    if (captchaAnswer !== captchaSolution) {
-      captchaErrorSpan.textContent = "Niepoprawna odpowiedź CAPTCHA.";
-      isValid = false;
-      generateCaptcha(); // Generuj nową CAPTCHA po błędnej odpowiedzi
-    } else {
-      captchaErrorSpan.textContent = ""; // Wyczyść komunikat błędu jeśli poprawna
-    }
+  
 
 
     if (isValid) {
@@ -192,20 +162,20 @@ fetch("send-email.php", {
                       setTimeout(() => {
                           hideNotification();
                           contactForm.reset(); // Reset formularza
-                          generateCaptcha(); // Generuj nową CAPTCHA po resecie
+                          // Generuj nową CAPTCHA po resecie
                           // window.location.reload(); // Odświeżenie strony (rzadko potrzebne)
                       }, 2000); // 2000 ms = 2 sekundy
 
            } else {
                // Błąd po stronie serwera
                alert(data.message || 'Wystąpił błąd podczas łaczenia z serwerem. Spróbuj ponownie później.');
-               generateCaptcha(); // Generuj nową CAPTCHA w razie błędu
+              // Generuj nową CAPTCHA w razie błędu
            }
        })
        .catch((error) => {
            console.error('Błąd sieci lub serwera:', error);
            alert('Wystąpił problem z połączeniem. Spróbuj ponownie później.');
-           generateCaptcha(); // Generuj nową CAPTCHA w razie błędu
+           // Generuj nową CAPTCHA w razie błędu
       });
 
 
@@ -231,7 +201,7 @@ fetch("send-email.php", {
   });
 
   // Generuj pierwszą CAPTCHA przy ładowaniu strony
-  generateCaptcha();
+  
 
   // Poczekaj, aż cała zawartość strony zostanie załadowana
 
