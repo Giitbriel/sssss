@@ -158,8 +158,8 @@ button {
  /* padding: 150px 20px;  Wewnętrzny padding dla sekcji */
   box-sizing: border-box;
   margin: 0 auto;
-  
   padding-top: 20vh;
+  min-height: 100vh;
 }
 
 .page-section .main { /* Usuwamy pozycjonowanie z oryginalnego .main */
@@ -860,17 +860,19 @@ body.image-modal-open {
     /* Zmniejszenie paddingu sekcji */
     .page-section {
 	    padding-top: 20vh 5vw;
+    	    min-height: 100vh;
+
         /*padding: 100px 15px; */
     }
-	#home {
-        padding-top: 20vh; /* Dostosuj tę wartość, jeśli trzeba */
+	/*#home {
+        padding-top: 20vh;  Dostosuj tę wartość, jeśli trzeba 
         min-height: 100vh;
 	}
 	#onas {
 	padding-top: 20vh;
 	min-height: 100vh;
 	}
-
+*/
     /* Zmniejszenie rozmiaru nagłówka H1 */
     .H1 {
         font-size: 2rem;
@@ -945,16 +947,17 @@ body.image-modal-open {
      /* Dalsze zmniejszenie paddingu sekcji */
       .page-section {
 	    padding-top: 20vh 5vw;
+	    min-height: 100vh;
         /*padding: 100px 15px; */
     }
-	#home {
-        padding-top: 20vh; /* Dostosuj tę wartość, jeśli trzeba */
+	/*#home {
+        padding-top: 20vh;  Dostosuj tę wartość, jeśli trzeba 
         min-height: 100vh;
 	}
 	#onas {
 	padding-top: 20vh;
 	min-height: 100vh;
-	}
+	}*/
      /* Dalsze zmniejszenie rozmiaru nagłówka H1 */
     .H1 {
         font-size: 1.8rem;
