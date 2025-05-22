@@ -98,86 +98,123 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Obsługa wysyłki formularza
   contactForm.addEventListener("submit", (e) => {
-    e.preventDefault(); // Zapobiega domyślnej wysyłce formularza
+   e.preventDefault(); // Zapobiega domyślnej wysyłce formularza
 
-    // Pobierz wartości z pól
-    const name = document.getElementById("name").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const message = document.getElementById("message").value.trim();
-    const captchaAnswer = parseInt(captchaInput.value.trim(), 10); // Parsuj na liczbę całkowitą
-  
-    let isValid = true; // Flaga walidacji
+// Pobieranie referencji do elementów DOM
+const nameInput = document.getElementById("name");
+const emailInput = document.getElementById("email");
+const messageInput = document.getElementById("message");
 
-    // Prosta walidacja pól (czy nie są puste)
-    if (name === "" || email === "" || message === "") {
-      alert("Proszę wypełnić wszystkie pola formularza."); // Można użyć ładniejszych komunikatów
-      isValid = false;
+// Pobieranie wartości i usuwanie białych znaków
+const name = nameInput.value.trim();
+const email = emailInput.value.trim();
+const message = messageInput.value.trim();
+
+let isValid = true; // Flaga walidacji
+
+// Pobieranie referencji do elementów wyświetlających błędy
+const nameError = document.getElementById("name-error");
+const emailError = document.getElementById("email-error");
+const messageError = document.getElementById("message-error");
+const recaptchaError = document.getElementById("recaptcha-error"); // Nowy element dla błędów reCAPTCHA
+
+// Funkcja do czyszczenia wszystkich komunikatów błędów
+function clearErrorMessages() {
+    nameError.textContent = '';
+    emailError.textContent = '';
+    messageError.textContent = '';
+    recaptchaError.textContent = ''; // Czyścimy błąd reCAPTCHA
+}
+
+// Na początku zdarzenia submit, czyścimy poprzednie błędy
+clearErrorMessages();
+
+// --- Walidacja pól formularza ---
+
+// Walidacja pola 'Imię'
+if (name === "") {
+    nameError.textContent = "Proszę podać swoje imię.";
+    isValid = false;
+}
+
+// Walidacja pola 'Email'
+if (email === "") {
+    emailError.textContent = "Proszę podać swój adres e-mail.";
+    isValid = false;
+} else {
+    // Prosta walidacja formatu e-maila (Regex)
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        emailError.textContent = "Proszę podać poprawny format adresu e-mail (np. email@domena.com).";
+        isValid = false;
     }
+}
 
-  
+// Walidacja pola 'Wiadomość'
+if (message === "") {
+    messageError.textContent = "Proszę wpisać wiadomość.";
+    isValid = false;
+}
 
+// --- Walidacja reCAPTCHA (po stronie klienta) ---
+// Pobierz token reCAPTCHA
+const token = grecaptcha.getResponse();
 
-    if (isValid) {
-      // --- Symulacja wysyłki wiadomości ---
-      console.log("Wiadomość wysłana (symulacja):");
-      console.log("Imię:", name);
-      console.log("Email:", email);
-      console.log("Wiadomość:", message);
-      console.log("CAPTCHA poprawna:", captchaAnswer);
-      // --- Koniec symulacji ---
+if (token.length === 0) { // Sprawdź, czy token został wygenerowany
+    recaptchaError.textContent = "Proszę zaznaczyć pole 'Nie jestem robotem'.";
+    isValid = false;
+}
 
-      // Tutaj ZAZWYCZAJ wysłałbyś dane do skryptu serwerowego
-      const token = grecaptcha.getResponse(); // pobiera token z widgetu
+// Jeśli wszystkie walidacje po stronie klienta przeszły pomyślnie
+if (isValid) {
+    // Tutaj kontynuujesz z wysyłką danych do send-email.php za pomocą fetch
+    // Upewnij się, że używasz wartości 'name', 'email', 'message', 'token' (dla reCAPTCHA)
+    // w obiekcie JSON, który wysyłasz.
 
-fetch("send-email.php", {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify({
-    name: yourNameInput.value,
-    email: yourEmailInput.value,
-    message: yourMessageInput.value,
-    recaptcha: token
-  })
-});
-      .then(response => {
-      //Sprawdź, czy odpowiedź HTTP jest poprawna (status 2xx)
-       if (!response.ok) {
-             // Jeśli status nie jest OK, rzuć błąd z odpowiedzią
-             return response.json().then(errorData => {
-                 throw new Error(errorData.message || 'Błąd sieci lub serwera.');
-             });
-         }
-         // Jeśli status jest OK, spróbuj sparsować JSON
-         return response.json();
-      })
-    
-      .then(data => {
-        // Tutaj 'data' to sparsowana odpowiedź JSON z serwera
-           if (data.success) {
-                   // Sukces 
-                      hideModal(); // Ukryj modal
-                      showNotification("Dziękujemy, wiadomość do nas leci."); // Pokaż powiadomienie
+    fetch("send-email.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+            name: name, // Używamy wartości z walidacji
+            email: email,
+            message: message,
+            recaptcha: token // Wysyłamy token reCAPTCHA
+        })
+    })
+    .then(response => {
+        if (!response.ok) {
+            return response.json().then(errorData => {
+                throw new Error(errorData.message || 'Błąd sieci lub serwera.');
+            });
+        }
+        return response.json();
+    })
+    .then(data => {
+        if (data.success) {
+            hideModal();
+            showNotification("Dziękujemy, wiadomość została wysłana!"); // Zmieniony tekst powiadomienia
+            setTimeout(() => {
+                hideNotification();
+                contactForm.reset();
+                // Ważne: Jeśli używasz reCAPTCHA v2 (checkbox), musisz ją zresetować
+                grecaptcha.reset();
+            }, 2000);
+        } else {
+            alert(data.message || 'Wystąpił błąd podczas wysyłki wiadomości. Spróbuj ponownie później.');
+            // Jeśli wystąpi błąd na serwerze (np. reCAPTCHA nieudana), zresetuj widżet reCAPTCHA
+            grecaptcha.reset();
+        }
+    })
+    .catch((error) => {
+        console.error('Błąd sieci lub serwera:', error);
+        alert('Wystąpił problem z połączeniem. Spróbuj ponownie później.');
+        grecaptcha.reset(); // Resetuj CAPTCHA również przy błędach sieci
+    });
 
-                      // Ustaw timer na ukrycie powiadomienia i reset formularza
-                      setTimeout(() => {
-                          hideNotification();
-                          contactForm.reset(); // Reset formularza
-                          // Generuj nową CAPTCHA po resecie
-                          // window.location.reload(); // Odświeżenie strony (rzadko potrzebne)
-                      }, 2000); // 2000 ms = 2 sekundy
-
-           } else {
-               // Błąd po stronie serwera
-               alert(data.message || 'Wystąpił błąd podczas łaczenia z serwerem. Spróbuj ponownie później.');
-              // Generuj nową CAPTCHA w razie błędu
-           }
-       })
-       .catch((error) => {
-           console.error('Błąd sieci lub serwera:', error);
-           alert('Wystąpił problem z połączeniem. Spróbuj ponownie później.');
-           // Generuj nową CAPTCHA w razie błędu
-      });
-
+} else {
+    // Walidacja po stronie klienta nie przeszła (błędy wyświetlone w spanach)
+    // Nic więcej nie musimy robić, bo isValid jest false i fetch nie zostanie wywołany.
+}
 
       // Poniższy kod działa od razu po pomyślnej walidacji CAPTCHA i pól JS, bez faktycznej wysyłki
     /*  hideModal(); // Ukryj modal
