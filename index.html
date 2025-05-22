@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <style>
 
         html {
@@ -272,9 +273,8 @@
                     <textarea id="message" name="message" rows="5" required></textarea>
                 </div>
                 <div class="form-group captcha-group">
-                    <label for="captcha-input"><span id="captcha-problem"></span> = ?</label>
-                    <input type="text" id="captcha-input" required>
-                    <span class="captcha-error"></span> </div>
+    <div class="g-recaptcha" data-sitekey="TWOJ_SITE_KEY"></div>
+</div>
                 <button type="submit" class="submit-button">Wyślij</button>
             </form>
         </div>
