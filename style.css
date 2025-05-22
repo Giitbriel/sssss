@@ -308,10 +308,10 @@ button {
   transform: scale(1.1); /* Lekkie powiększenie */
 }
 
-#cennik {
-  scroll-margin-top: -110px; /* Dodana linia */
-  /* pozostałe style dla #cennik */
-}
+/*#cennik {
+  scroll-margin-top: -110px;  Dodana linia 
+
+}*/
 /* Style specyficzne dla sekcji Cennik */
 #cennik #table-wrapper {
   position: relative;
@@ -430,8 +430,8 @@ button {
 
 }
 
-#home {
-	min-height: 100vh;/*jesli nie chcemy galerii na glownej */
+/*#home {
+	min-height: 100vh; jesli nie chcemy galerii na glownej 
 	padding-top: 120px;
 }*/
 /* Przykład reguły dla .xN (pozostawiamy left i transform, usuwamy animation) */
