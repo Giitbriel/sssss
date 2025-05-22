@@ -171,7 +171,7 @@ if (isValid) {
     // Upewnij się, że używasz wartości 'name', 'email', 'message', 'token' (dla reCAPTCHA)
     // w obiekcie JSON, który wysyłasz.
 
-    fetch("send-email.php", {
+    fetch("php/contactFormMail/send-email.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
