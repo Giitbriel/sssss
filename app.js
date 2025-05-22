@@ -128,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const email = document.getElementById("email").value.trim();
     const message = document.getElementById("message").value.trim();
     const captchaAnswer = parseInt(captchaInput.value.trim(), 10); // Parsuj na liczbę całkowitą
-
+  
     let isValid = true; // Flaga walidacji
 
     // Prosta walidacja pól (czy nie są puste)
@@ -157,10 +157,21 @@ document.addEventListener('DOMContentLoaded', () => {
       // --- Koniec symulacji ---
 
       // Tutaj ZAZWYCZAJ wysłałbyś dane do skryptu serwerowego
-      // fetch('/send-email.php', { method: 'POST', body: JSON.stringify({ name, email, message }) })
-      // .then(response => {
-      // Sprawdź, czy odpowiedź HTTP jest poprawna (status 2xx)
-      /* if (!response.ok) {
+      const token = grecaptcha.getResponse(); // pobiera token z widgetu
+
+fetch("send-email.php", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    name: yourNameInput.value,
+    email: yourEmailInput.value,
+    message: yourMessageInput.value,
+    recaptcha: token
+  })
+});
+      .then(response => {
+      //Sprawdź, czy odpowiedź HTTP jest poprawna (status 2xx)
+       if (!response.ok) {
              // Jeśli status nie jest OK, rzuć błąd z odpowiedzią
              return response.json().then(errorData => {
                  throw new Error(errorData.message || 'Błąd sieci lub serwera.');
@@ -169,10 +180,11 @@ document.addEventListener('DOMContentLoaded', () => {
          // Jeśli status jest OK, spróbuj sparsować JSON
          return response.json();
       })
-      /*response.json())
-      // .then(data => {
-      //     if (data.success) {
-                   // Sukces - pokaż powiadomienie
+    
+      .then(data => {
+        // Tutaj 'data' to sparsowana odpowiedź JSON z serwera
+           if (data.success) {
+                   // Sukces 
                       hideModal(); // Ukryj modal
                       showNotification("Dziękujemy, wiadomość do nas leci."); // Pokaż powiadomienie
 
@@ -181,25 +193,24 @@ document.addEventListener('DOMContentLoaded', () => {
                           hideNotification();
                           contactForm.reset(); // Reset formularza
                           generateCaptcha(); // Generuj nową CAPTCHA po resecie
-                          // Tutaj możesz opcjonalnie przekierować użytkownika lub odświeżyć część strony
                           // window.location.reload(); // Odświeżenie strony (rzadko potrzebne)
                       }, 2000); // 2000 ms = 2 sekundy
 
-      //     } else {
-      //         // Błąd po stronie serwera
-      //         alert('Wystąpił błąd podczas wysyłki wiadomości.');
-      //         generateCaptcha(); // Generuj nową CAPTCHA w razie błędu
-      //     }
-      // })
-      // .catch((error) => {
-      //     console.error('Błąd sieci lub serwera:', error);
-      //     alert('Wystąpił problem z połączeniem. Spróbuj ponownie później.');
-      //     generateCaptcha(); // Generuj nową CAPTCHA w razie błędu
-      // });
-*/
+           } else {
+               // Błąd po stronie serwera
+               alert(data.message || 'Wystąpił błąd podczas łaczenia z serwerem. Spróbuj ponownie później.');
+               generateCaptcha(); // Generuj nową CAPTCHA w razie błędu
+           }
+       })
+       .catch((error) => {
+           console.error('Błąd sieci lub serwera:', error);
+           alert('Wystąpił problem z połączeniem. Spróbuj ponownie później.');
+           generateCaptcha(); // Generuj nową CAPTCHA w razie błędu
+      });
+
 
       // Poniższy kod działa od razu po pomyślnej walidacji CAPTCHA i pól JS, bez faktycznej wysyłki
-      hideModal(); // Ukryj modal
+    /*  hideModal(); // Ukryj modal
       showNotification("Dziękujemy, wiadomość do nas leci."); // Pokaż powiadomienie
 
       // Ustaw timer na ukrycie powiadomienia i reset formularza
@@ -211,7 +222,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Jeśli chcesz wymusić powrót na górę strony głównej, możesz użyć:
         // window.scrollTo({ top: 0, behavior: 'smooth' });
       }, 2000); // 2000 ms = 2 sekundy
-
+*/
     } else {
       // Walidacja JS nie przeszła (pola puste lub CAPTCHA błędna)
       // Komunikat błędu CAPTCHA jest już wyświetlany w spanie .captcha-error
