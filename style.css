@@ -158,7 +158,7 @@ button {
  /* padding: 150px 20px;  Wewnętrzny padding dla sekcji */
   box-sizing: border-box;
   margin: 0 auto;
- /* padding-top: 20vh;*/
+  padding-top: 20vh;
   min-height: 100vh;
 }
 
